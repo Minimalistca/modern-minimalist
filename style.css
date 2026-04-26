@@ -16,23 +16,31 @@
         border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; 
     }
 
-    .logo a { 
-        display: flex; 
-        align-items: center; 
-        text-decoration: none !important; /* REMOVES UNDERLINE */
-        gap: 15px; 
-    }
-
+   
     .logo img { height: 40px !important; width: auto !important; display: block; }
 
-    .logo-text { 
-        font-family: 'Playfair Display', serif; /* STYLISH FONT */
-        font-weight: 700; 
-        font-size: 1.3rem;
-        color: var(--terracotta); /* BROWN COLOR */
-        letter-spacing: 0.5px;
-        text-transform: none;
-    }
+/* This targets the link and all its "ghost" states */
+.logo a, 
+.logo a:visited, 
+.logo a:hover, 
+.logo a:active { 
+    text-decoration: none !important; 
+    border-bottom: none !important;
+    outline: none !important;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-text { 
+    font-family: 'Playfair Display', serif; 
+    font-weight: 700; 
+    font-size: 1.3rem;
+    color: #C36B4D; /* Your Terracotta Brown */
+    letter-spacing: 0.5px;
+    /* This is the final safety net for the underline */
+    text-decoration: none !important;
+}
 
     .nav-links a { text-decoration: none; color: var(--dark); margin-left: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
 
