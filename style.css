@@ -19,18 +19,28 @@
         height: 80px; /* Forces the bar to stay 80px tall */
     }
 
-    /* FIX: This forces the logo to stay small */
-    .logo, .logo a {
-        display: flex;
-        align-items: center;
-        height: 80px;
-    }
+   /* Update the logo area to fit both image and text */
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Removes underline from the name */
+    gap: 12px; /* Adds a clean space between the logo and the name */
+}
 
-    .logo img { 
-        height: 40px !important; /* This forces the height to 40px no matter what */
-        width: auto !important; 
-        display: block;
-    }
+.logo-text {
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    color: var(--dark);
+    text-transform: uppercase;
+    white-space: nowrap; /* Prevents the name from breaking into two lines */
+}
+
+/* Ensure the image stays small next to the text */
+.logo img { 
+    height: 35px !important; 
+    width: auto !important; 
+}
 
     .nav-links a { 
         text-decoration: none; 
