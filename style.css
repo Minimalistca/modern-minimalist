@@ -1,0 +1,17 @@
+.logo img {
+    height: 40px; /* Adjust this to your preference */
+    width: auto;  /* Keeps the proportions correct */
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.logo img:hover {
+    opacity: 0.8; /* Subtle interaction when people hover over it */
+}
+
+/* Ensure the nav adjusts to the logo height */
+nav {
+    display: flex;
+    align-items: center;
+    padding: 15px 5%;
+}
