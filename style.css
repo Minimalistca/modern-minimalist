@@ -1,15 +1,44 @@
-/* This "tames" the big logo */
+/* 1. The "Control Tower" - Sets a firm height for the header */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 80px; /* Force the header to stay 80px tall */
+    background: var(--white);
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Keeps it above everything else */
+}
+
+/* 2. The Logo Wrapper - Keeps the logo in its own "lane" */
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100%; /* Fills the 80px nav height */
+    max-width: 250px; /* Prevents it from taking over the screen */
+}
+
+/* 3. The Image - The most important part */
 .logo img {
-    max-height: 50px;    /* Limits height so it stays in the nav bar */
-    width: auto;         /* Keeps it from looking squished */
-    max-width: 200px;    /* Prevents it from getting too wide */
+    height: 45px;      /* Fixes the height regardless of original size */
+    width: auto;        /* Keeps proportions perfect */
+    object-fit: contain; /* Ensures the logo isn't squished */
     display: block;
 }
 
-/* Ensures the header doesn't explode in size */
-header, nav {
-    height: 80px;        /* Fixed height for the "control tower" of your site */
+/* 4. The Links - Ensures they stay on the right side */
+.nav-links {
     display: flex;
-    align-items: center;
-    overflow: hidden;    /* Anything bigger than 80px gets hidden */
+    gap: 25px; /* Adds clean space between Beauty, Home, Garden */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
