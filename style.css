@@ -1,17 +1,15 @@
+/* This "tames" the big logo */
 .logo img {
-    height: 40px; /* Adjust this to your preference */
-    width: auto;  /* Keeps the proportions correct */
+    max-height: 50px;    /* Limits height so it stays in the nav bar */
+    width: auto;         /* Keeps it from looking squished */
+    max-width: 200px;    /* Prevents it from getting too wide */
     display: block;
-    transition: opacity 0.3s ease;
 }
 
-.logo img:hover {
-    opacity: 0.8; /* Subtle interaction when people hover over it */
-}
-
-/* Ensure the nav adjusts to the logo height */
-nav {
+/* Ensures the header doesn't explode in size */
+header, nav {
+    height: 80px;        /* Fixed height for the "control tower" of your site */
     display: flex;
     align-items: center;
-    padding: 15px 5%;
+    overflow: hidden;    /* Anything bigger than 80px gets hidden */
 }
