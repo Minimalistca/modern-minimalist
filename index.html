@@ -11,15 +11,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Minimalist | The Analytical Curation</title>
+    <title>Modern Minimalist | Research-Backed Curation</title>
     
-    <meta property="og:title" content="Modern Minimalist | Aesthetic Home Decor & Clean Beauty" />
-    <meta property="og:description" content="Elevate your space with research-backed minimalist design and clean beauty essentials." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://modernminimalist.ca" />
-    <meta property="og:image" content="https://modernminimalist.ca/images/og-image.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
-
     <style>
         :root {
             --jade: #2D5A27; --terracotta: #C36B4D; --grey: #F4F4F4; --white: #FFFFFF; --dark: #1A1A1A;
@@ -27,7 +20,7 @@
         
         body { font-family: 'Inter', -apple-system, sans-serif; background: var(--grey); color: var(--dark); margin: 0; line-height: 1.6; }
         
-        /* Fixed & Professional Navigation */
+        /* Navigation - Logo & Menu */
         nav { 
             display: flex; 
             justify-content: space-between; 
@@ -41,15 +34,14 @@
             z-index: 1000; 
         }
 
-        .logo-container {
+        .logo {
             display: flex;
             align-items: center;
-            max-width: 180px; /* Limits the horizontal space for logo */
         }
 
-        .logo-container img { 
-            height: 40px; /* STRICT LOGO HEIGHT - Change this to resize */
-            width: auto; 
+        .logo img { 
+            height: 40px !important; 
+            width: auto !important; 
             display: block;
             object-fit: contain;
         }
@@ -65,19 +57,19 @@
         }
 
         /* Hero Section */
-        .hero { text-align: center; padding: 100px 10%; background: var(--white); }
+        .hero { text-align: center; padding: 80px 10%; background: var(--white); }
         .badge { color: var(--jade); font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; }
-        h1 { font-size: 3.2rem; margin: 0; font-weight: 300; letter-spacing: -1px; }
+        h1 { font-size: 2.8rem; margin: 0; font-weight: 300; letter-spacing: -1px; }
         h1 span { color: var(--terracotta); font-style: italic; }
         .hero p { max-width: 600px; margin: 20px auto; color: #666; font-size: 1.1rem; }
 
-        /* The Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; padding: 60px 5%; max-width: 1200px; margin: auto; }
+        /* The Grid System */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; padding: 40px 5%; max-width: 1200px; margin: auto; }
         
         /* The Audit Card */
         .audit-card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: transform 0.3s ease; display: flex; flex-direction: column; }
         .audit-card:hover { transform: translateY(-10px); }
-        .card-img { height: 250px; background: #e0e0e0; background-size: cover; background-position: center; }
+        .card-img { height: 220px; background-color: #e0e0e0; background-size: cover; background-position: center; }
         .card-content { padding: 30px; flex-grow: 1; }
         
         /* Data Sheet Styling */
@@ -95,7 +87,7 @@
 <body>
 
 <nav>
-    <div class="logo-container">
+    <div class="logo">
         <a href="index.html">
             <img src="logo.png" alt="Modern Minimalist Logo">
         </a>
@@ -111,7 +103,7 @@
 <section class="hero">
     <span class="badge">Mississauga • Data-Driven Curation</span>
     <h1>Less Clutter. <br><span>More Analysis.</span></h1>
-    <p>Using data science to audit ingredients, durability, and utility for the modern Canadian home.</p>
+    <p>Using an analytical lens to audit ingredients, durability, and utility for the modern Canadian home.</p>
 </section>
 
 <div class="grid">
@@ -139,4 +131,32 @@
             <div class="data-sheet">
                 <div class="data-row"><span class="label">CRI Rating</span><span>90+ (True Color)</span></div>
                 <div class="data-row"><span class="label">Lifespan</span><span>50,000 Hours</span></div>
-                <div class="data-row"><span class="label">Connectivity</span>
+                <div class="data-row"><span class="label">Connectivity</span><span>Zigbee/Matter</span></div>
+            </div>
+            <a href="YOUR_AMAZON_LINK" class="btn">View Specs</a>
+        </div>
+    </div>
+
+    <div class="audit-card" id="garden">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800');"></div>
+        <div class="card-content">
+            <span class="badge" style="color:var(--terracotta)">Garden Audit #009</span>
+            <h3>Hydroponic AeroGarden</h3>
+            <p>Light spectrum analysis for year-round indoor herb cultivation.</p>
+            <div class="data-sheet">
+                <div class="data-row"><span class="label">PAR Output</span><span>High Efficiency</span></div>
+                <div class="data-row"><span class="label">Growth Rate</span><span>5x Faster vs Soil</span></div>
+                <div class="data-row"><span class="label">Automation</span><span>Full Nutrient Alert</span></div>
+            </div>
+            <a href="YOUR_AMAZON_LINK" class="btn">Analyze The Yield</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Modern Minimalist | Analyzed in Mississauga, ON.</p>
+    <p><em>As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.</em></p>
+</footer>
+
+</body>
+</html>
