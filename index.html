@@ -18,58 +18,87 @@
 
     <style>
         :root { --terracotta: #C36B4D; --dark: #1A1A1A; --grey: #F8F8F8; }
-        body { height: 100vh; margin: 0; font-family: 'Inter', sans-serif; background: var(--grey); color: var(--dark); display: flex; align-items: center; justify-content: center; text-align: center; }
-        .container { padding: 20px; max-width: 500px; animation: fadeIn 1s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        body { height: 100vh; margin: 0; font-family: 'Inter', sans-serif; background: var(--grey); color: var(--dark); display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
         
-        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--terracotta); font-weight: 700; margin-bottom: 20px; display: block; }
+        .container { padding: 20px; max-width: 500px; transition: all 0.5s ease; }
+        
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--terracotta); font-weight: 700; margin-bottom: 20px; display: block; text-decoration: none; }
         h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin: 10px 0; font-weight: 700; line-height: 1.2; }
         h1 span { font-style: italic; color: var(--terracotta); }
         p { color: #666; font-size: 1rem; margin-bottom: 30px; }
 
-        /* Functional Form Styling */
-        form { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 350px; margin: 0 auto; }
+        /* Form Styling */
+        #notify-form { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 350px; margin: 0 auto; transition: opacity 0.4s ease; }
         
         input[type="email"] {
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            outline: none;
-            transition: border-color 0.3s;
+            padding: 15px; border: 1px solid #ddd; border-radius: 6px;
+            font-family: 'Inter', sans-serif; font-size: 0.9rem; outline: none;
         }
 
-        input[type="email"]:focus { border-color: var(--terracotta); }
-
-        .btn { 
-            background: var(--dark); 
-            color: white; 
-            padding: 15px; 
-            border: none; 
-            border-radius: 6px; 
-            font-weight: 600; 
-            cursor: pointer; 
-            transition: 0.3s; 
-        }
-
+        .btn { background: var(--dark); color: white; padding: 15px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.3s; }
         .btn:hover { background: var(--terracotta); }
+
+        /* SUCCESS MESSAGE (Hidden by default) */
+        #success-state { display: none; opacity: 0; transform: translateY(10px); transition: all 0.6s ease; }
         
+        .success-icon { font-size: 3rem; color: var(--terracotta); margin-bottom: 15px; }
+
         .footer { margin-top: 50px; font-size: 0.7rem; letter-spacing: 2px; color: #aaa; text-transform: uppercase; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <span class="logo-text">Modern Minimalist</span>
-        <h1>Something <span>Analytical</span> is coming.</h1>
-        <p>Expertly auditing the essentials for the modern Mississauga home. Join the waitlist for the launch.</p>
-        
-        <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
-            <input type="email" name="email" placeholder="Enter your email address" required>
-            <button type="submit" class="btn">Notify Me</button>
-        </form>
 
-        <div class="footer">Mississauga • Ontario</div>
+    <div class="container" id="main-container">
+        <span class="logo-text">Modern Minimalist</span>
+
+        <div id="form-state">
+            <h1>Something <span>Analytical</span> is coming.</h1>
+            <p>Expertly auditing the essentials for the modern Mississauga home. Join the waitlist for the launch.</p>
+            
+            <form id="notify-form">
+                <input type="email" id="email-input" placeholder="Enter your email address" required>
+                <button type="submit" class="btn">Notify Me</button>
+            </form>
+        </div>
+
+        <div id="success-state">
+            <div class="success-icon">✓</div>
+            <h1>Audit <span>Confirmed.</span></h1>
+            <p>Your data-driven briefing is being prepared. <br> We'll notify you soon.</p>
+            <div class="footer">Mississauga • Ontario</div>
+        </div>
+
+        <div class="footer" id="main-footer">Mississauga • Ontario</div>
     </div>
+
+    <script>
+        const form = document.getElementById('notify-form');
+        const formState = document.getElementById('form-state');
+        const successState = document.getElementById('success-state');
+        const mainFooter = document.getElementById('main-footer');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevents the page from refreshing
+            
+            // In a real setup, this is where the data is sent to Brevo/Formspree
+            
+            // 1. Hide the Form
+            formState.style.opacity = '0';
+            mainFooter.style.opacity = '0';
+            
+            setTimeout(() => {
+                formState.style.display = 'none';
+                mainFooter.style.display = 'none';
+                
+                // 2. Show the Success Message
+                successState.style.display = 'block';
+                setTimeout(() => {
+                    successState.style.opacity = '1';
+                    successState.style.transform = 'translateY(0)';
+                }, 50);
+            }, 400);
+        });
+    </script>
+
 </body>
 </html>
