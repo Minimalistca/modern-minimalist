@@ -19,7 +19,7 @@
     <style>
         :root {
             --jade: #2D5A27; 
-            --terracotta: #C36B4D; 
+            --terracotta: #C36B4D; /* Brand Orange/Brown */
             --grey: #F4F4F4; 
             --white: #FFFFFF; 
             --dark: #1A1A1A;
@@ -28,29 +28,37 @@
         
         body { font-family: 'Inter', sans-serif; background: var(--grey); color: var(--dark); margin: 0; line-height: 1.6; }
 
+        /* Navigation */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 0 5%; background: var(--white); height: 80px; 
             border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; 
         }
-
-        .logo a { text-decoration: none !important; display: flex; align-items: center; gap: 15px; }
-        /* Professional Logo Sizing */
+        .logo a { text-decoration: none !important; display: flex; align-items: center; gap: 15px; border: none !important; }
         .logo img { height: 40px; width: auto; display: block; }
         .logo-text { 
             font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; 
             color: var(--terracotta); letter-spacing: 0.5px; text-decoration: none !important;
         }
-
         .nav-links a { text-decoration: none; color: var(--dark); margin-left: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
 
-        .hero { text-align: center; padding: 80px 10%; background: var(--white); }
-        .badge { color: var(--jade); font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 0; font-weight: 700; }
+        /* Hero Section with Architectural Background */
+        .hero { 
+            text-align: center; 
+            padding: 100px 10%; 
+            background-image: 
+                linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(255,255,255,0.95)), 
+                url('https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-bottom: 1px solid #eaeaea;
+        }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; font-weight: 700; }
         h1 span { color: var(--terracotta); font-style: italic; }
-        .hero p { max-width: 600px; margin: 20px auto; color: #666; }
+        .hero p { max-width: 600px; margin: 20px auto; color: #666; font-size: 1.1rem; }
 
-        /* THE GRID - Forced 3-Column Layout */
+        /* GRID: Forced 3-Column Layout */
         .grid { 
             display: grid !important; 
             grid-template-columns: repeat(3, 1fr) !important; 
@@ -60,6 +68,7 @@
             margin: auto; 
         }
 
+        /* CARD HOVER EFFECTS RESTORED */
         .audit-card { 
             background: var(--white); 
             border-radius: 12px; 
@@ -67,32 +76,44 @@
             box-shadow: var(--subtle-elevation); 
             display: flex; 
             flex-direction: column; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+        }
+        .audit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
         }
 
-        /* Direct Image Sizing */
-        .audit-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-            background-color: #eee; /* Fallback color */
-        }
-
+        .audit-card img { width: 100%; height: 220px; object-fit: cover; display: block; background-color: #eee; }
         .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        
         .data-sheet { background: var(--grey); border-radius: 6px; padding: 12px; margin: 15px 0; font-size: 0.8rem; }
         .data-row { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding: 8px 0; }
         .data-row:last-child { border-bottom: none; }
         .label { font-weight: bold; color: var(--jade); }
 
+        /* BUTTON HOVER TO ORANGE RESTORED */
         .btn { 
             display: block; text-align: center; background: var(--dark); color: white; 
             padding: 12px; text-decoration: none; border-radius: 4px; font-weight: 600; 
             margin-top: auto; 
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: var(--terracotta); /* Changes to Brand Orange/Brown */
         }
 
-        footer { text-align: center; padding: 40px; background: var(--white); border-top: 1px solid #eee; font-size: 0.75rem; color: #999; }
+        /* FOOTER LINES RESTORED */
+        footer { 
+            text-align: center; 
+            padding: 40px; 
+            background: var(--white); 
+            border-top: 1px solid #eee; /* Top line restored */
+            font-size: 0.75rem; 
+            color: #999; 
+        }
 
-        @media (max-width: 900px) { .grid { grid-template-columns: 1fr !important; } }
+        @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr) !important; } }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr !important; } }
     </style>
 </head>
 <body>
@@ -100,7 +121,6 @@
 <nav>
     <div class="logo">
         <a href="index.html">
-            <!-- IMPORTANT: logo.svg must be in the SAME folder as this file -->
             <img src="logo.svg" alt="Modern Minimalist Logo">
             <span class="logo-text">Modern Minimalist</span>
         </a>
@@ -167,6 +187,7 @@
 
 <footer>
     <p>© 2026 Modern Minimalist | Analyzed in Mississauga, ON.</p>
+    <p><em>As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.</em></p>
 </footer>
 
 </body>
