@@ -1,85 +1,98 @@
 <style>
     :root {
         --jade: #2D5A27; 
-        --terracotta: #C36B4D; 
+        --terracotta: #C36B4D; /* Minimalist Accent Color */
         --grey: #F4F4F4; 
         --white: #FFFFFF; 
         --dark: #1A1A1A;
-        --subtle-elevation: 0 4px 15px rgba(0,0,0,0.03);
+        --subtle-elevation: 0 4px 20px rgba(0,0,0,0.03);
     }
     
-    body { font-family: 'Inter', sans-serif; background: var(--grey); color: var(--dark); margin: 0; line-height: 1.6; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--grey); color: var(--dark); margin: 0; line-height: 1.6; }
 
-    /* Navigation */
+    /* --- Professional Navigation (Clean & Sticky) --- */
     nav { 
         display: flex; justify-content: space-between; align-items: center; 
         padding: 0 5%; background: var(--white); height: 80px; 
         border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; 
     }
     
-    .logo a { text-decoration: none !important; display: flex; align-items: center; gap: 15px; border-bottom: none !important; }
+    .logo a { text-decoration: none !important; display: flex; align-items: center; gap: 15px; border: none !important; }
     .logo img { height: 40px !important; width: auto !important; display: block; }
+    
     .logo-text { 
         font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; 
         color: var(--terracotta); letter-spacing: 0.5px; text-decoration: none !important;
     }
 
-    .nav-links a { text-decoration: none; color: var(--dark); margin-left: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+    .nav-links a { 
+        text-decoration: none; color: var(--dark); margin-left: 20px; 
+        font-size: 0.8rem; font-weight: 700; text-transform: uppercase; 
+        transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--terracotta); }
 
-    /* Hero Section */
-    .hero { text-align: center; padding: 80px 10%; background: var(--white); }
+    /* --- Hero Section (Aesthetic Typography) --- */
+    .hero { text-align: center; padding: 100px 10% 60px 10%; background: var(--white); }
     .badge { color: var(--jade); font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; }
-    h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 0; font-weight: 700; }
-    h1 span { color: var(--terracotta); font-style: italic; }
-    .hero p { max-width: 600px; margin: 20px auto; color: #666; }
+    h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; font-weight: 700; letter-spacing: -1px; }
+    h1 span { color: var(--terracotta); font-style: italic; font-weight: 400; }
+    .hero p { max-width: 600px; margin: 25px auto 0 auto; color: #666; font-size: 1.1rem; }
 
-    /* THE GRID - Forced 3-Column Layout */
+    /* --- THE GRID FIX (Forced 3-Column Layout) --- */
     .grid { 
-        display: grid !important; 
-        grid-template-columns: repeat(3, 1fr) !important; 
-        gap: 25px; 
-        padding: 40px 5% 60px 5%; 
+        display: grid; 
+        grid-template-columns: repeat(3, 1fr); /* Forces exactly 3 columns */
+        gap: 30px; 
+        padding: 60px 5% 80px 5%; 
         max-width: 1400px; 
         margin: auto; 
     }
 
+    /* --- Audit Cards (Professional Curation) --- */
     .audit-card { 
         background: var(--white); 
-        border-radius: 12px; 
+        border-radius: 16px; 
         overflow: hidden; 
         box-shadow: var(--subtle-elevation); 
         display: flex; 
         flex-direction: column; 
-        transition: transform 0.3s ease;
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
     }
     
-    .audit-card:hover { transform: translateY(-5px); }
+    .audit-card:hover { 
+        transform: translateY(-8px); 
+        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    }
 
     .card-img { 
-        height: 220px; 
+        height: 250px; /* Optimal visual height */
         background-size: cover; 
         background-position: center;
         background-repeat: no-repeat;
         background-color: #eee;
     }
 
-    .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+    .card-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
     
-    .data-sheet { background: var(--grey); border-radius: 6px; padding: 12px; margin: 15px 0; font-size: 0.8rem; }
-    .data-row { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding: 6px 0; }
+    /* Technical Specs (Jade Accent) */
+    .data-sheet { background: var(--grey); border-radius: 8px; padding: 15px; margin: 20px 0; font-size: 0.85rem; border: 1px solid #eee; }
+    .data-row { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding: 8px 0; }
     .data-row:last-child { border-bottom: none; }
     .label { font-weight: bold; color: var(--jade); }
 
+    /* Primary Action Button (Terracotta Accent) */
     .btn { 
         display: block; text-align: center; background: var(--dark); color: white; 
-        padding: 12px; text-decoration: none; border-radius: 4px; font-weight: 600; 
-        margin-top: auto; transition: background 0.3s;
+        padding: 15px; text-decoration: none; border-radius: 8px; font-weight: 600; 
+        margin-top: auto; transition: background 0.3s, letter-spacing 0.3s;
     }
-    .btn:hover { background: var(--terracotta); }
+    .btn:hover { background: var(--terracotta); letter-spacing: 0.5px; }
 
-    footer { text-align: center; padding: 40px; background: var(--white); border-top: 1px solid #eee; font-size: 0.75rem; color: #999; }
+    /* --- Footer (Subtle Branding) --- */
+    footer { text-align: center; padding: 60px; background: var(--white); border-top: 1px solid #eee; font-size: 0.8rem; color: #999; }
 
-    /* Responsive adjustments */
-    @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr) !important; } }
-    @media (max-width: 768px) { .grid { grid-template-columns: 1fr !important; } }
+    /* --- Professional Responsiveness --- */
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
+    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; padding: 40px 5%; } }
 </style>
