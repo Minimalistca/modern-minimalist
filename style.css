@@ -17,7 +17,7 @@
         border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; 
     }
     
-    .logo a { text-decoration: none !important; display: flex; align-items: center; gap: 15px; }
+    .logo a { text-decoration: none !important; display: flex; align-items: center; gap: 15px; border-bottom: none !important; }
     .logo img { height: 40px !important; width: auto !important; display: block; }
     .logo-text { 
         font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; 
@@ -33,10 +33,10 @@
     h1 span { color: var(--terracotta); font-style: italic; }
     .hero p { max-width: 600px; margin: 20px auto; color: #666; }
 
-    /* THE GRID - Clean & Fixed to 3 Columns */
+    /* THE GRID - Forced 3-Column Layout */
     .grid { 
-        display: grid; 
-        grid-template-columns: repeat(3, 1fr); 
+        display: grid !important; 
+        grid-template-columns: repeat(3, 1fr) !important; 
         gap: 25px; 
         padding: 40px 5% 60px 5%; 
         max-width: 1400px; 
@@ -80,6 +80,6 @@
     footer { text-align: center; padding: 40px; background: var(--white); border-top: 1px solid #eee; font-size: 0.75rem; color: #999; }
 
     /* Responsive adjustments */
-    @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+    @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr) !important; } }
+    @media (max-width: 768px) { .grid { grid-template-columns: 1fr !important; } }
 </style>
