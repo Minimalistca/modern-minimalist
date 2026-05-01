@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="[https://www.googletagmanager.com/gtag/js?id=G-HXZEJH111N](https://www.googletagmanager.com/gtag/js?id=G-HXZEJH111N)"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HXZEJH111N"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -11,7 +10,7 @@
     </script>
     
     <link rel="icon" type="image/png" href="logo2.png">
-    <link href="[https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;700&display=swap](https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;700&display=swap)" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,15 +28,15 @@
         
         body { font-family: 'Inter', sans-serif; background: var(--grey); color: var(--dark); margin: 0; line-height: 1.6; }
 
-        /* Navigation */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 0 5%; background: var(--white); height: 80px; 
             border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; 
         }
 
-        .logo a { text-decoration: none !important; display: flex; align-items: center; gap: 15px; border: none !important; }
-        .logo img { height: 40px !important; width: auto !important; display: block; }
+        .logo a { text-decoration: none !important; display: flex; align-items: center; gap: 15px; }
+        /* Professional Logo Sizing */
+        .logo img { height: 40px; width: auto; display: block; }
         .logo-text { 
             font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; 
             color: var(--terracotta); letter-spacing: 0.5px; text-decoration: none !important;
@@ -45,12 +44,11 @@
 
         .nav-links a { text-decoration: none; color: var(--dark); margin-left: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
 
-        /* Hero */
         .hero { text-align: center; padding: 80px 10%; background: var(--white); }
         .badge { color: var(--jade); font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 0; font-weight: 700; line-height: 1.2; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 0; font-weight: 700; }
         h1 span { color: var(--terracotta); font-style: italic; }
-        .hero p { max-width: 600px; margin: 20px auto; color: #666; font-size: 1.1rem; }
+        .hero p { max-width: 600px; margin: 20px auto; color: #666; }
 
         /* THE GRID - Forced 3-Column Layout */
         .grid { 
@@ -69,21 +67,18 @@
             box-shadow: var(--subtle-elevation); 
             display: flex; 
             flex-direction: column; 
-            transition: transform 0.3s ease;
         }
-        
-        .audit-card:hover { transform: translateY(-5px); }
 
-        .card-img { 
-            height: 220px; 
-            background-size: cover; 
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #eee;
+        /* Direct Image Sizing */
+        .audit-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            background-color: #eee; /* Fallback color */
         }
 
         .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-        
         .data-sheet { background: var(--grey); border-radius: 6px; padding: 12px; margin: 15px 0; font-size: 0.8rem; }
         .data-row { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding: 8px 0; }
         .data-row:last-child { border-bottom: none; }
@@ -92,15 +87,12 @@
         .btn { 
             display: block; text-align: center; background: var(--dark); color: white; 
             padding: 12px; text-decoration: none; border-radius: 4px; font-weight: 600; 
-            margin-top: auto; transition: background 0.3s;
+            margin-top: auto; 
         }
-        .btn:hover { background: var(--terracotta); }
 
         footer { text-align: center; padding: 40px; background: var(--white); border-top: 1px solid #eee; font-size: 0.75rem; color: #999; }
 
-        /* Tablet & Mobile Responsiveness */
-        @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr) !important; } }
-        @media (max-width: 768px) { .grid { grid-template-columns: 1fr !important; } }
+        @media (max-width: 900px) { .grid { grid-template-columns: 1fr !important; } }
     </style>
 </head>
 <body>
@@ -108,12 +100,11 @@
 <nav>
     <div class="logo">
         <a href="index.html">
-            <!-- Ensure logo.svg exists in your GitHub folder -->
-            <img src="logo.svg" alt="Logo">
+            <!-- IMPORTANT: logo.svg must be in the SAME folder as this file -->
+            <img src="logo.svg" alt="Modern Minimalist Logo">
             <span class="logo-text">Modern Minimalist</span>
         </a>
     </div>
-    
     <div class="nav-links">
         <a href="#beauty">Beauty</a>
         <a href="#home">Home</a>
@@ -124,63 +115,58 @@
 <section class="hero">
     <span class="badge">Mississauga • Data-Driven Curation</span>
     <h1>Less Clutter <br><span>More Analysis</span></h1>
-    <p>Using an analytical lens to audit ingredients, durability, and utility for the modern Canadian home.</p>
+    <p>Using an analytical lens to audit ingredients and utility for the modern Canadian home.</p>
 </section>
     
 <div class="grid">
     <!-- Audit 001: Beauty -->
     <div class="audit-card" id="beauty">
-        <!-- FIXED IMAGE: Clinical Gold Hydrogel Masks -->
-        <div class="card-img" style="background-image: url('[https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=800&auto=format&fit=crop](https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=800&auto=format&fit=crop)');"></div>
+        <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=800&auto=format&fit=crop" alt="Grace & Stella Gold Eye Masks">
         <div class="card-content">
             <span class="badge" style="color:var(--terracotta)">Lab Audit #001</span>
             <h3>Grace & Stella Eye Masks</h3>
-            <p>High-purity humectant profile optimized for dry Ontario climates.</p>
             <div class="data-sheet">
-                <div class="data-row"><span class="label">pH Balance</span><span>5.5 (Optimal)</span></div>
                 <div class="data-row"><span class="label">Main Active</span><span>Sodium Hyaluronate</span></div>
+                <div class="data-row"><span class="label">pH Level</span><span>5.5 (Optimal)</span></div>
                 <div class="data-row"><span class="label">Utility Rank</span><span>#1 for 2026</span></div>
             </div>
-            <a href="YOUR_AMAZON_LINK" class="btn">View Analytical Pricing</a>
+            <a href="#" class="btn">View Analytical Pricing</a>
         </div>
     </div>
 
     <!-- Audit 002: Home -->
     <div class="audit-card" id="home">
-        <div class="card-img" style="background-image: url('[https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&auto=format&fit=crop](https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&auto=format&fit=crop)');"></div>
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&auto=format&fit=crop" alt="Smart LED Lighting">
         <div class="card-content">
             <span class="badge" style="color:var(--terracotta)">Home Audit #002</span>
             <h3>Smart LED Cove Strip</h3>
-            <p>Spatial efficiency analysis for high-rise drawing rooms in Mississauga.</p>
             <div class="data-sheet">
                 <div class="data-row"><span class="label">CRI Rating</span><span>90+</span></div>
                 <div class="data-row"><span class="label">Lifespan</span><span>50,000 Hours</span></div>
                 <div class="data-row"><span class="label">Connectivity</span><span>Zigbee/Matter</span></div>
             </div>
-            <a href="YOUR_AMAZON_LINK" class="btn">View Specs</a>
+            <a href="#" class="btn">View Specs</a>
         </div>
     </div>
 
     <!-- Audit 003: Garden -->
     <div class="audit-card" id="garden">
-        <div class="card-img" style="background-image: url('[https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800](https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800)');"></div>
+        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800" alt="Hydroponic Garden System">
         <div class="card-content">
             <span class="badge" style="color:var(--terracotta)">Garden Audit #003</span>
             <h3>Hydroponic AeroGarden</h3>
-            <p>Light spectrum analysis for year-round indoor herb cultivation.</p>
             <div class="data-sheet">
                 <div class="data-row"><span class="label">PAR Output</span><span>High Efficiency</span></div>
-                <div class="data-row"><span class="label">Growth Rate</span><span>5x Faster vs Soil</span></div>
+                <div class="data-row"><span class="label">Growth Rate</span><span>5x Faster</span></div>
                 <div class="data-row"><span class="label">Automation</span><span>Full Nutrient Alert</span></div>
             </div>
-            <a href="YOUR_AMAZON_LINK" class="btn">Analyze The Yield</a>
+            <a href="#" class="btn">Analyze The Yield</a>
         </div>
     </div>
 </div>
 
 <footer>
     <p>© 2026 Modern Minimalist | Analyzed in Mississauga, ON.</p>
-    <p><em>As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.</em></p>
 </footer>
 
 </body>
