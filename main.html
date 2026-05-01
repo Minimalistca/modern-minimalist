@@ -42,23 +42,23 @@
         }
         .nav-links a { text-decoration: none; color: var(--dark); margin-left: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
 
-        /* Hero Section with Architectural Background */
+        /* Hero Section with Architectural Macro Background */
         .hero { 
             text-align: center; 
-            padding: 100px 10%; 
+            padding: 120px 10%; 
             background-image: 
-                linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(255,255,255,0.95)), 
-                url('https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=1600');
+                /* Fades from 80% opacity to 100% solid grey to blend seamlessly into the grid section below */
+                linear-gradient(to bottom, rgba(244,244,244,0.80), rgba(244,244,244,1)), 
+                url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1600&auto=format&fit=crop'); /* Abstract macro glass/texture */
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            border-bottom: 1px solid #eaeaea;
+            background-attachment: fixed; /* Fixed Parallax */
         }
         h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; font-weight: 700; }
         h1 span { color: var(--terracotta); font-style: italic; }
         .hero p { max-width: 600px; margin: 20px auto; color: #666; font-size: 1.1rem; }
 
-        /* GRID: Forced 3-Column Layout */
+        /* GRID: Forced 3-Column Layout (Untouched) */
         .grid { 
             display: grid !important; 
             grid-template-columns: repeat(3, 1fr) !important; 
@@ -68,7 +68,7 @@
             margin: auto; 
         }
 
-        /* CARD HOVER EFFECTS RESTORED */
+        /* CARD HOVER EFFECTS RESTORED (Untouched) */
         .audit-card { 
             background: var(--white); 
             border-radius: 12px; 
@@ -76,7 +76,7 @@
             box-shadow: var(--subtle-elevation); 
             display: flex; 
             flex-direction: column; 
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
         }
         .audit-card:hover {
             transform: translateY(-8px);
@@ -91,7 +91,7 @@
         .data-row:last-child { border-bottom: none; }
         .label { font-weight: bold; color: var(--jade); }
 
-        /* BUTTON HOVER TO ORANGE RESTORED */
+        /* BUTTON HOVER TO ORANGE RESTORED (Untouched) */
         .btn { 
             display: block; text-align: center; background: var(--dark); color: white; 
             padding: 12px; text-decoration: none; border-radius: 4px; font-weight: 600; 
@@ -99,15 +99,15 @@
             transition: background 0.3s ease;
         }
         .btn:hover {
-            background: var(--terracotta); /* Changes to Brand Orange/Brown */
+            background: var(--terracotta); 
         }
 
-        /* FOOTER LINES RESTORED */
+        /* FOOTER LINES RESTORED (Untouched) */
         footer { 
             text-align: center; 
             padding: 40px; 
             background: var(--white); 
-            border-top: 1px solid #eee; /* Top line restored */
+            border-top: 1px solid #eee; 
             font-size: 0.75rem; 
             color: #999; 
         }
@@ -133,7 +133,7 @@
 </nav>
 
 <section class="hero">
-    <span class="badge">Mississauga • Data-Driven Curation</span>
+    <span class="badge" style="color:var(--jade); font-weight:bold; font-size:0.85rem; text-transform:uppercase; letter-spacing:1px;">Mississauga • Data-Driven Curation</span>
     <h1>Less Clutter <br><span>More Analysis</span></h1>
     <p>Using an analytical lens to audit ingredients and utility for the modern Canadian home.</p>
 </section>
