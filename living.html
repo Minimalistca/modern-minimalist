@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living Lab | Analytical Curation</title>
+    <style>
+        :root {
+            --jade: #2D5A27; --terracotta: #C36B4D; --grey: #F4F4F4; --white: #FFFFFF; --dark: #1A1A1A;
+            --subtle-elevation: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--grey); color: var(--dark); margin: 0; line-height: 1.6; }
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 0 5%; background: var(--white); height: 80px; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; 
+        }
+        .logo a { text-decoration: none; display: flex; align-items: center; gap: 15px; }
+        .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; color: var(--terracotta); }
+        .nav-links a { text-decoration: none; color: var(--dark); margin-left: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+        .hero { 
+            text-align: center; padding: 80px 10%; 
+            background-image: linear-gradient(to bottom, rgba(244,244,244,0.85), rgba(244,244,244,1)), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        .hub-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 0; }
+        .hub-title span { color: var(--terracotta); font-style: italic; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; padding: 40px 5%; max-width: 1400px; margin: auto; }
+        .audit-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: var(--subtle-elevation); transition: transform 0.3s ease; }
+        .audit-card:hover { transform: translateY(-8px); }
+        .audit-card img { width: 100%; height: 220px; object-fit: cover; }
+        .card-content { padding: 25px; }
+        .data-sheet { background: var(--grey); border-radius: 6px; padding: 12px; margin: 15px 0; font-size: 0.8rem; }
+        .data-row { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding: 8px 0; }
+        .data-row:last-child { border-bottom: none; }
+        .label { font-weight: bold; color: var(--jade); }
+        .btn { display: block; text-align: center; background: var(--dark); color: white; padding: 12px; text-decoration: none; border-radius: 4px; font-weight: 600; transition: background 0.3s ease; }
+        .btn:hover { background: var(--terracotta); }
+        footer { text-align: center; padding: 40px; border-top: 1px solid #eee; font-size: 0.75rem; color: #999; }
+        @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="logo"><a href="main.html"><img src="assets/logo.svg" alt="Logo" height="40"><span class="logo-text">Modern Minimalist</span></a></div>
+    <div class="nav-links"><a href="main.html">Home</a><a href="beauty.html">Beauty</a><a href="workspace.html">Workspace</a></div>
+</nav>
+<section class="hero">
+    <span class="badge" style="color:var(--jade); font-weight:bold; letter-spacing:1px;">AUDIT HUB // 02</span>
+    <h1 class="hub-title">The Ambient <span>Living Lab</span></h1>
+    <p>Auditing the intersection of architectural form and atmospheric performance.</p>
+</section>
+<div class="grid">
+    <!-- Audit: Candle Warmer -->
+    <div class="audit-card">
+        <img src="assets/candle.jpg" alt="Candle Warmer">
+        <div class="card-content">
+            <span class="badge" style="color:var(--terracotta)">Living Audit #001</span>
+            <h3>Candeldo Warmer Lamp</h3>
+            <div class="data-sheet">
+                <div class="data-row"><span class="label">Heat Source</span><span>50W Halogen</span></div>
+                <div class="data-row"><span class="label">Safety</span><span>Zero Open Flame</span></div>
+                <div class="data-row"><span class="label">Efficiency</span><span>Extended Wax Life</span></div>
+            </div>
+            <a href="#" class="btn">Audit Market Value</a>
+        </div>
+    </div>
+    <!-- Audit: Travertine Table -->
+    <div class="audit-card">
+        <img src="https://images.unsplash.com/photo-1581428982868-e410dd047a90?q=80&w=800&auto=format&fit=crop" alt="Coffee Table">
+        <div class="card-content">
+            <span class="badge" style="color:var(--terracotta)">Living Audit #002</span>
+            <h3>Travertine Pedestal Table</h3>
+            <div class="data-sheet">
+                <div class="data-row"><span class="label">Material</span><span>Faux Stone / Resin</span></div>
+                <div class="data-row"><span class="label">Structure</span><span>Pedestal Base</span></div>
+                <div class="data-row"><span class="label">Maintenance</span><span>Non-Porous Finish</span></div>
+            </div>
+            <a href="#" class="btn">Verify Structural Specs</a>
+        </div>
+    </div>
+</div>
+<footer>
+    <p>© 2026 Modern Minimalist | Mississauga, ON.</p>
+    <p><em>As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.</em></p>
+</footer>
+</body>
+</html>
