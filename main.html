@@ -1,193 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HXZEJH111N"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-HXZEJH111N');
-    </script>
-    
-    <link rel="icon" type="image/png" href="assets/logo2.png">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Minimalist | Research-Backed Curation</title>
-    
+    <title>Modern Minimalist | Analytical Curation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --jade: #2D5A27; 
-            --terracotta: #C36B4D; /* Brand Orange/Brown */
-            --grey: #F4F4F4; 
-            --white: #FFFFFF; 
-            --dark: #1A1A1A;
+            --jade: #2D5A27; --terracotta: #C36B4D; --grey: #F4F4F4; --white: #FFFFFF; --dark: #1A1A1A;
             --subtle-elevation: 0 4px 15px rgba(0,0,0,0.03);
         }
-        
         body { font-family: 'Inter', sans-serif; background: var(--grey); color: var(--dark); margin: 0; line-height: 1.6; }
-
+        
         /* Navigation */
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 0 5%; background: var(--white); height: 80px; 
-            border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; 
+            padding: 0 5%; background: var(--white); height: 80px; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; 
         }
-        .logo a { text-decoration: none !important; display: flex; align-items: center; gap: 15px; border: none !important; }
-        .logo img { height: 40px; width: auto; display: block; }
-        .logo-text { 
-            font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; 
-            color: var(--terracotta); letter-spacing: 0.5px; text-decoration: none !important;
-        }
+        .logo a { text-decoration: none; display: flex; align-items: center; gap: 15px; }
+        .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; color: var(--terracotta); }
         .nav-links a { text-decoration: none; color: var(--dark); margin-left: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
 
-        /* Hero Section with Architectural Macro Background */
+        /* Hero */
         .hero { 
-            text-align: center; 
-            padding: 120px 10%; 
-            background-image: 
-                /* Fades from 80% opacity to 100% solid grey to blend seamlessly into the grid section below */
-                linear-gradient(to bottom, rgba(244,244,244,0.80), rgba(244,244,244,1)), 
-                url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1600&auto=format&fit=crop'); /* Abstract macro glass/texture */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Fixed Parallax */
+            text-align: center; padding: 120px 10%; 
+            background-image: linear-gradient(to bottom, rgba(244,244,244,0.85), rgba(244,244,244,1)), url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover; background-position: center; background-attachment: fixed; 
         }
         h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; font-weight: 700; }
         h1 span { color: var(--terracotta); font-style: italic; }
-        .hero p { max-width: 600px; margin: 20px auto; color: #666; font-size: 1.1rem; }
 
-        /* GRID: Forced 3-Column Layout (Untouched) */
-        .grid { 
-            display: grid !important; 
-            grid-template-columns: repeat(3, 1fr) !important; 
-            gap: 25px; 
-            padding: 40px 5% 60px 5%; 
-            max-width: 1400px; 
-            margin: auto; 
-        }
-
-        /* CARD HOVER EFFECTS RESTORED (Untouched) */
-        .audit-card { 
-            background: var(--white); 
-            border-radius: 12px; 
-            overflow: hidden; 
-            box-shadow: var(--subtle-elevation); 
-            display: flex; 
-            flex-direction: column; 
-            transition: transform 0.3s ease, box-shadow 0.3s ease; 
-        }
-        .audit-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-        }
-
-        .audit-card img { width: 100%; height: 220px; object-fit: cover; display: block; background-color: #eee; }
-        .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        /* Grid & Image Fix */
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; padding: 40px 5% 80px 5%; max-width: 1400px; margin: auto; }
+        .audit-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: var(--subtle-elevation); transition: transform 0.3s ease; display: flex; flex-direction: column; }
+        .audit-card:hover { transform: translateY(-8px); }
         
+        /* Image "Fitting Full" Fix */
+        .audit-card img { 
+            width: 100%; 
+            aspect-ratio: 16 / 10; /* Ensures consistent framing and prevents squashing */
+            object-fit: cover; /* Forces image to fill entire space without distortion */
+            display: block; 
+            background-color: #eee;
+        }
+        
+        .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
         .data-sheet { background: var(--grey); border-radius: 6px; padding: 12px; margin: 15px 0; font-size: 0.8rem; }
         .data-row { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding: 8px 0; }
         .data-row:last-child { border-bottom: none; }
         .label { font-weight: bold; color: var(--jade); }
 
-        /* BUTTON HOVER TO ORANGE RESTORED (Untouched) */
-        .btn { 
-            display: block; text-align: center; background: var(--dark); color: white; 
-            padding: 12px; text-decoration: none; border-radius: 4px; font-weight: 600; 
-            margin-top: auto; 
-            transition: background 0.3s ease;
-        }
-        .btn:hover {
-            background: var(--terracotta); 
-        }
+        .btn { display: block; text-align: center; background: var(--dark); color: white; padding: 12px; text-decoration: none; border-radius: 4px; font-weight: 600; margin-top: auto; transition: background 0.3s ease; }
+        .btn:hover { background: var(--terracotta); }
 
-        /* FOOTER LINES RESTORED (Untouched) */
-        footer { 
-            text-align: center; 
-            padding: 40px; 
-            background: var(--white); 
-            border-top: 1px solid #eee; 
-            font-size: 0.75rem; 
-            color: #999; 
+        /* Newsletter Section (The Spacer) */
+        .newsletter {
+            background: var(--white);
+            padding: 100px 10%;
+            text-align: center;
+            border-top: 1px solid #eee;
         }
+        .newsletter h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0 0 10px 0; }
+        .newsletter p { color: #666; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .newsletter-form { display: flex; justify-content: center; gap: 10px; max-width: 500px; margin: 0 auto; }
+        .newsletter-form input { padding: 15px 20px; border: 1px solid #ddd; border-radius: 4px; flex-grow: 1; font-family: inherit; }
+        .newsletter-form button { background: var(--dark); color: white; border: none; padding: 15px 30px; border-radius: 4px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .newsletter-form button:hover { background: var(--terracotta); }
 
-        @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr) !important; } }
-        @media (max-width: 768px) { .grid { grid-template-columns: 1fr !important; } }
+        /* Footer */
+        footer { text-align: center; padding: 60px 40px; background: var(--grey); border-top: 1px solid #eee; font-size: 0.75rem; color: #999; }
+        
+        @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .newsletter-form { flex-direction: column; } }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="logo">
-        <a href="index.html">
-            <img src="assets/logo.svg" alt="Modern Minimalist Logo">
+        <a href="main.html">
+            <img src="assets/logo.svg" alt="Modern Minimalist Logo" height="40">
             <span class="logo-text">Modern Minimalist</span>
         </a>
     </div>
     <div class="nav-links">
         <a href="beauty.html">Beauty</a>
-        <a href="living.html">Home</a>
+        <a href="living.html">Living</a>
         <a href="workspace.html">Workspace</a>
     </div>
 </nav>
 
 <section class="hero">
-    <span class="badge" style="color:var(--jade); font-weight:bold; font-size:0.85rem; text-transform:uppercase; letter-spacing:1px;">Mississauga • Data-Driven Curation</span>
+    <span class="badge" style="color:var(--jade); font-weight:bold; letter-spacing:1px;">CURATION HUB // 2026</span>
     <h1>Less Clutter <br><span>More Analysis</span></h1>
-    <p>Using an analytical lens to audit beauty ingredients and utility for the modern home.</p>
+    <p>Using an analytical lens to audit utility for the modern Canadian home.</p>
 </section>
-    
+
 <div class="grid">
-    <!-- Audit 001: Beauty -->
-    <div class="audit-card" id="beauty">
-        <img src="assets/eyemask.webp" alt="Macro view of Grace & Stella Gold Eye Masks on concrete">
+    <!-- Hub 01: Beauty -->
+    <div class="audit-card">
+        <img src="assets/beauty-hero.webp" alt="Beauty Hub" loading="lazy">
         <div class="card-content">
-            <span class="badge" style="color:var(--terracotta)">Lab Audit #001</span>
-            <h3>Grace & Stella Eye Masks</h3>
+            <span class="badge" style="color:var(--terracotta)">Hub // 01</span>
+            <h3>Clean Beauty</h3>
             <div class="data-sheet">
-                <div class="data-row"><span class="label">Main Active</span><span>Sodium Hyaluronate</span></div>
-                <div class="data-row"><span class="label">pH Level</span><span>5.5 (Optimal)</span></div>
-                <div class="data-row"><span class="label">Utility Rank</span><span>#1 for 2026</span></div>
+                <div class="data-row"><span class="label">Pillar</span><span>Molecular Integrity</span></div>
+                <div class="data-row"><span class="label">Audits</span><span>Active Ingredients</span></div>
             </div>
             <a href="beauty.html" class="btn">Enter Beauty Audit</a>
         </div>
     </div>
 
-    <!-- Audit 002: Home -->
-    <div class="audit-card" id="home">
-        <img src="assets/candle.webp" alt="Macro view of matte black candle warmer lamp melting wax">
+    <!-- Hub 02: Living -->
+    <div class="audit-card">
+        <img src="assets/candle.webp" alt="Living Hub" loading="lazy">
         <div class="card-content">
-            <span class="badge" style="color:var(--terracotta)">Home Audit #002</span>
-            <h3>Candeldo Warmer Lamp</h3>
+            <span class="badge" style="color:var(--terracotta)">Hub // 02</span>
+            <h3>Ambient Living</h3>
             <div class="data-sheet">
-                <div class="data-row"><span class="label">Heat Source</span><span>50W Halogen</span></div>
-                <div class="data-row"><span class="label">Timer Settings</span><span>2Hr / 4Hr / 8Hr</span></div>
-                <div class="data-row"><span class="label">Safety Profile</span><span>Zero Soot / Flame</span></div>
+                <div class="data-row"><span class="label">Pillar</span><span>Atmospheric Utility</span></div>
+                <div class="data-row"><span class="label">Audits</span><span>Form & Function</span></div>
             </div>
-            <a href="living.html" class="btn">Explore Living Curations</a>
+            <a href="living.html" class="btn">Enter Living Audit</a>
         </div>
     </div>
 
-    <!-- Audit 003: Workspace -->
-    <div class="audit-card" id="workspace">
-        <img src="assets/screenbar.webp" alt="Macro view of a matte black BenQ ScreenBar Pro on concrete">
+    <!-- Hub 03: Workspace -->
+    <div class="audit-card">
+        <img src="assets/benq-pro-macro.webp" alt="Workspace Hub" loading="lazy">
         <div class="card-content">
-            <span class="badge" style="color:var(--terracotta)">Tech Audit #003</span>
-            <h3>BenQ ScreenBar Pro</h3>
+            <span class="badge" style="color:var(--terracotta)">Hub // 03</span>
+            <h3>Analytical Workspace</h3>
             <div class="data-sheet">
-                <div class="data-row"><span class="label">Center Lux</span><span>>1000 lx (Ultra-wide)</span></div>
-                <div class="data-row"><span class="label">Color Temp</span><span>2700K - 6500K</span></div>
-                <div class="data-row"><span class="label">Automation</span><span>Ultrasonic Auto On/Off</span></div>
+                <div class="data-row"><span class="label">Pillar</span><span>Ergonomic Data</span></div>
+                <div class="data-row"><span class="label">Audits</span><span>Technical Hardware</span></div>
             </div>
-            <a href="workspace.html" class="btn">Enter Workspace Hub</a>
+            <a href="workspace.html" class="btn">Enter Workspace Audit</a>
         </div>
     </div>
 </div>
 
+<section class="newsletter">
+    <h3>The Weekly Audit Log</h3>
+    <p>Join the registry to receive technical breakdowns of minimalist essentials and laboratory-grade product audits before they hit the site.</p>
+    <form class="newsletter-form">
+        <input type="email" placeholder="Email Address" required>
+        <button type="submit">Join Registry</button>
+    </form>
+</section>
+
 <footer>
     <p>© 2026 Modern Minimalist | Analyzed in Mississauga, ON.</p>
-    <p><em>As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.</em></p>
+    <p><em>As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.</em></p>
 </footer>
 
 </body>
