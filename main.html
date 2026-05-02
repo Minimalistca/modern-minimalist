@@ -7,7 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --brand-brown: #C36B4D; /* Unified color for the entire brand */
+            /* Restored to your original minimalist palette */
+            --jade: #2D5A27; 
+            --terracotta: #C36B4D; 
             --grey: #F4F4F4; 
             --white: #FFFFFF; 
             --dark: #1A1A1A;
@@ -21,7 +23,7 @@
             padding: 0 5%; background: var(--white); height: 80px; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; 
         }
         .logo a { text-decoration: none; display: flex; align-items: center; gap: 15px; }
-        .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; color: var(--brand-brown); }
+        .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; color: var(--terracotta); }
         .nav-links a { text-decoration: none; color: var(--dark); margin-left: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
 
         /* Hero */
@@ -31,14 +33,14 @@
             background-size: cover; background-position: center; background-attachment: fixed; 
         }
         h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; font-weight: 700; }
-        h1 span { color: var(--brand-brown); font-style: italic; }
+        h1 span { color: var(--terracotta); font-style: italic; }
 
         /* Grid */
         .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; padding: 40px 5% 80px 5%; max-width: 1400px; margin: auto; }
         .audit-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: var(--subtle-elevation); transition: transform 0.3s ease; display: flex; flex-direction: column; }
         .audit-card:hover { transform: translateY(-8px); }
         
-        /* Image Settings (No Lazy Loading) */
+        /* Image Settings */
         .audit-card img { 
             width: 100%; 
             aspect-ratio: 16 / 10; 
@@ -51,12 +53,12 @@
         .data-sheet { background: var(--grey); border-radius: 6px; padding: 12px; margin: 15px 0; font-size: 0.8rem; }
         .data-row { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding: 8px 0; }
         .data-row:last-child { border-bottom: none; }
-        .label { font-weight: bold; color: var(--brand-brown); }
+        .label { font-weight: bold; color: var(--jade); }
 
         .btn { display: block; text-align: center; background: var(--dark); color: white; padding: 12px; text-decoration: none; border-radius: 4px; font-weight: 600; margin-top: auto; transition: background 0.3s ease; }
-        .btn:hover { background: var(--brand-brown); }
+        .btn:hover { background: var(--terracotta); }
 
-        /* PRO NEWSLETTER DESIGN */
+        /* Professional Dark Newsletter */
         .newsletter {
             background: var(--dark);
             color: var(--white);
@@ -68,7 +70,7 @@
         .newsletter-form { display: flex; justify-content: center; gap: 10px; max-width: 500px; margin: 0 auto; }
         .newsletter-form input { padding: 15px 20px; border: 1px solid #333; background: #222; color: white; border-radius: 4px; flex-grow: 1; font-family: inherit; }
         .newsletter-form input::placeholder { color: #777; }
-        .newsletter-form button { background: var(--brand-brown); color: white; border: none; padding: 15px 30px; border-radius: 4px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .newsletter-form button { background: var(--terracotta); color: white; border: none; padding: 15px 30px; border-radius: 4px; font-weight: 600; cursor: pointer; transition: 0.3s; }
         .newsletter-form button:hover { background: var(--white); color: var(--dark); }
         .privacy-note { display: block; margin-top: 15px; font-size: 0.75rem; color: #666; font-style: italic; }
 
@@ -96,7 +98,7 @@
 </nav>
 
 <section class="hero">
-    <span class="badge" style="color:var(--brand-brown); font-weight:bold; letter-spacing:1px;">RESEARCH LAB // MISSISSAUGA</span>
+    <span class="badge" style="color:var(--jade); font-weight:bold; letter-spacing:1px;">RESEARCH LAB // MISSISSAUGA</span>
     <h1>Less Clutter <br><span>More Analysis</span></h1>
     <p>Using an analytical lens to audit utility for the modern Canadian home.</p>
 </section>
@@ -106,7 +108,7 @@
     <div class="audit-card">
         <img src="assets/eyemask.webp" alt="Grace & Stella Eye Masks">
         <div class="card-content">
-            <span class="badge" style="color:var(--brand-brown)">Lab Audit #001</span>
+            <span class="badge" style="color:var(--terracotta)">Lab Audit #001</span>
             <h3>Grace & Stella Eye Masks</h3>
             <div class="data-sheet">
                 <div class="data-row"><span class="label">Main Active</span><span>Sodium Hyaluronate</span></div>
@@ -120,7 +122,7 @@
     <div class="audit-card">
         <img src="assets/candle.webp" alt="Candeldo Warmer Lamp">
         <div class="card-content">
-            <span class="badge" style="color:var(--brand-brown)">Living Audit #002</span>
+            <span class="badge" style="color:var(--terracotta)">Living Audit #002</span>
             <h3>Candeldo Warmer Lamp</h3>
             <div class="data-sheet">
                 <div class="data-row"><span class="label">Heat Source</span><span>50W Halogen</span></div>
@@ -134,7 +136,7 @@
     <div class="audit-card">
         <img src="assets/screenbar.webp" alt="BenQ ScreenBar Pro">
         <div class="card-content">
-            <span class="badge" style="color:var(--brand-brown)">Tech Audit #003</span>
+            <span class="badge" style="color:var(--terracotta)">Tech Audit #003</span>
             <h3>BenQ ScreenBar Pro</h3>
             <div class="data-sheet">
                 <div class="data-row"><span class="label">Illuminance</span><span>1000 lx (Peak)</span></div>
@@ -148,16 +150,19 @@
 <section class="newsletter">
     <h3>The Weekly Audit Log</h3>
     <p>Join the registry to receive technical breakdowns of minimalist essentials and laboratory-grade product audits before they hit the site.</p>
-    <form class="newsletter-form">
-        <input type="email" placeholder="Enter your email address" required>
+    
+    <!-- ADD YOUR BREVO URL TO THE ACTION ATTRIBUTE BELOW -->
+    <form class="newsletter-form" action="YOUR_BREVO_URL_HERE" method="POST">
+        <input type="email" name="email" placeholder="Enter your email address" required>
         <button type="submit">Join Registry</button>
     </form>
+    
     <span class="privacy-note">Zero spam. Unsubscribe at any time.</span>
 </section>
 
 <footer>
     <p>© 2026 Modern Minimalist | Analyzed in Mississauga, ON.</p>
-    <p><em>As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.</em></p>
+    <p><em>As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.</em> | <a href="privacy.html" style="color:#999; text-decoration:none;">Privacy Policy</a></p>
 </footer>
 
 </body>
