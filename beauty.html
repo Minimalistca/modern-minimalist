@@ -32,7 +32,7 @@
             text-align: center; padding: 80px 10%; 
             background-image: 
                 linear-gradient(to bottom, rgba(244,244,244,0.85), rgba(244,244,244,1)), 
-                url('https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1600&auto=format&fit=crop'); /* Macro serum texture */
+                url('https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1600&auto=format&fit=crop'); 
             background-size: cover; background-position: center; background-attachment: fixed;
         }
         
@@ -47,20 +47,33 @@
         .audit-card { 
             background: var(--white); border-radius: 12px; overflow: hidden; 
             box-shadow: var(--subtle-elevation); transition: transform 0.3s ease;
+            display: flex; flex-direction: column;
         }
         .audit-card:hover { transform: translateY(-8px); }
-        .audit-card img { width: 100%; height: 220px; object-fit: cover; }
-        .card-content { padding: 25px; }
+        
+        /* New Image Gallery Styles */
+        .image-gallery { display: flex; flex-direction: column; gap: 5px; background: #eee; }
+        .image-gallery .main-img { width: 100%; height: 220px; object-fit: cover; }
+        .image-gallery .thumbnails { display: flex; gap: 5px; }
+        .image-gallery .thumbnails img { width: 50%; height: 80px; object-fit: cover; }
+        
+        .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
         
         .data-sheet { background: var(--grey); border-radius: 6px; padding: 12px; margin: 15px 0; font-size: 0.8rem; }
         .data-row { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding: 8px 0; }
         .data-row:last-child { border-bottom: none; }
         .label { font-weight: bold; color: var(--jade); }
 
+        /* Persuasive Hook Styling */
+        .persuasive-text { 
+            font-size: 0.9rem; color: #444; margin: 15px 0 20px 0; 
+            padding-left: 12px; border-left: 3px solid var(--terracotta); 
+        }
+
         .btn { 
             display: block; text-align: center; background: var(--dark); color: white; 
             padding: 12px; text-decoration: none; border-radius: 4px; font-weight: 600; 
-            transition: background 0.3s ease;
+            transition: background 0.3s ease; margin-top: auto;
         }
         .btn:hover { background: var(--terracotta); }
 
@@ -87,7 +100,7 @@
 </nav>
 
 <!-- Hero Section for beauty.html -->
-<section class="hero" style="background-image: linear-gradient(to bottom, rgba(244,244,244,0.85), rgba(244,244,244,1)), url('https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=1600&auto=format&fit=crop');">
+<section class="hero">
     <span class="badge" style="color:var(--jade); font-weight:bold; letter-spacing:1px;">AUDIT HUB // 01</span>
     <h1 class="hub-title">The Beauty <span>Laboratory</span></h1>
     <p>Analytical audits of molecular integrity and skincare utility.</p>
@@ -96,16 +109,38 @@
 <div class="grid">
     <!-- Beauty Audit 001 -->
     <div class="audit-card">
-        <img src="assets/eyemask.webp" alt="Grace & Stella Gold Eye Masks">
+        
+        <!-- Swipeable Image Slider -->
+        <div class="slider-wrapper">
+            <div class="slider-track">
+                <!-- Image 1: The Main Shot -->
+                <img src="assets/eyemask.webp" alt="Grace & Stella Gold Eye Masks">
+                <!-- Image 2: The Context/Packaging Shot -->
+                <img src="assets/eyemask_context.webp" alt="Eye Mask Packaging Detail" onerror="this.src='https://images.unsplash.com/photo-1615397323282-311b514cd140?q=80&w=600&auto=format&fit=crop'">
+                <!-- Image 3: The Texture Shot -->
+                <img src="assets/eyemask_texture.webp" alt="Hydrogel Patch Texture" onerror="this.src='https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=600&auto=format&fit=crop'">
+            </div>
+            <!-- Visual cue for users to interact -->
+            <div class="slider-hint">Swipe ➔</div>
+        </div>>
+
         <div class="card-content">
             <span class="badge" style="color:var(--terracotta)">Lab Audit #001</span>
             <h3>Grace & Stella Eye Masks</h3>
+            
             <div class="data-sheet">
                 <div class="data-row"><span class="label">Main Active</span><span>Sodium Hyaluronate</span></div>
                 <div class="data-row"><span class="label">pH Level</span><span>5.5 (Optimal)</span></div>
                 <div class="data-row"><span class="label">Utility Rank</span><span>#1 for 2026</span></div>
             </div>
-            <a href="#" class="btn">Verify pH Lab Data</a>
+
+            <!-- The Persuasive Hook -->
+            <p class="persuasive-text">
+                Recognized as one of the absolute best treatments for under-eye dark circles and morning puffiness. The hydrogel formula locks in deep hydration, instantly waking up tired eyes and delivering a noticeable, radiant glow before you even start your day.
+            </p>
+            
+            <!-- Prepared for Amazon SiteStripe -->
+            <a href="YOUR_AMAZON_LINK_HERE" target="_blank" rel="nofollow" class="btn">Verify Current Pricing</a>
         </div>
     </div>
 
@@ -113,8 +148,15 @@
 </div>
 
 <footer>
-    <p>© 2026 Modern Minimalist | Mississauga, ON.</p>
-    <p><em>As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.</em></p>
+    <p>© 2026 Modern Minimalist | North American Market Analysis.<<em> As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.</em></p>
+    
+    <!-- The Legal Link Row -->
+    <div style="margin-top: 15px; display: flex; justify-content: center; gap: 20px;">
+        <a href="privacy.html" style="color:#999; text-decoration:none;">Privacy Policy</a>
+        <a href="terms.html" style="color:#999; text-decoration:none;">Terms of Service</a>
+        <a href="disclaimer.html" style="color:#999; text-decoration:none;">Disclaimer</a>
+        <a href="contact.html" style="color:#999; text-decoration:none;">Contact Registry</a>
+    </div>
 </footer>
 
 </body>
