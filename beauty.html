@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HXZEJH111N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HXZEJH111N');
+    </script>
+    
     <link rel="icon" type="image/png" href="assets/logo2.png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
@@ -51,44 +59,33 @@
         }
         .audit-card:hover { transform: translateY(-8px); }
         
-       /* Swipeable Product Slider */
-        .slider-wrapper { 
-            position: relative; 
-            width: 100%; 
-            height: 250px; /* Slightly taller for a premium look */
-            background: #eee;
-        }
+        /* Swipe & Click Product Slider */
+        .slider-container { position: relative; width: 100%; height: 250px; background: #eee; }
         .slider-track { 
-            display: flex; 
-            overflow-x: auto; 
-            scroll-snap-type: x mandatory; 
-            scroll-behavior: smooth; 
-            -webkit-overflow-scrolling: touch; 
-            height: 100%; 
-            scrollbar-width: none; /* Hides scrollbar in Firefox */
+            display: flex; overflow-x: auto; scroll-snap-type: x mandatory; 
+            scroll-behavior: smooth; -webkit-overflow-scrolling: touch; 
+            height: 100%; scrollbar-width: none; 
         }
-        .slider-track::-webkit-scrollbar { 
-            display: none; /* Hides scrollbar in Chrome/Safari */
+        .slider-track::-webkit-scrollbar { display: none; }
+        .slider-track img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; scroll-snap-align: start; }
+        
+        /* Clickable Arrows for Laptop */
+        .slide-btn { 
+            position: absolute; top: 50%; transform: translateY(-50%); 
+            background: rgba(26, 26, 26, 0.7); color: white; border: none; 
+            width: 35px; height: 35px; cursor: pointer; border-radius: 50%; 
+            font-size: 1rem; z-index: 10; display: flex; justify-content: center; align-items: center;
+            backdrop-filter: blur(4px); transition: background 0.3s;
         }
-        .slider-track img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            flex-shrink: 0; 
-            scroll-snap-align: start; 
-        }
+        .slide-btn:hover { background: var(--terracotta); }
+        .slide-btn.prev { left: 10px; }
+        .slide-btn.next { right: 10px; }
+
         .slider-hint {
-            position: absolute; 
-            bottom: 15px; 
-            right: 15px;
-            background: rgba(26, 26, 26, 0.7); 
-            color: var(--white);
-            padding: 4px 10px; 
-            border-radius: 20px; 
-            font-size: 0.75rem; 
-            font-weight: 700;
-            pointer-events: none; /* Prevents the badge from blocking swipes */
-            backdrop-filter: blur(4px);
+            position: absolute; bottom: 15px; right: 15px;
+            background: rgba(26, 26, 26, 0.7); color: var(--white);
+            padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; 
+            font-weight: 700; pointer-events: none; backdrop-filter: blur(4px); z-index: 5;
         }
         
         .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
@@ -98,7 +95,6 @@
         .data-row:last-child { border-bottom: none; }
         .label { font-weight: bold; color: var(--jade); }
 
-        /* Persuasive Hook Styling */
         .persuasive-text { 
             font-size: 0.9rem; color: #444; margin: 15px 0 20px 0; 
             padding-left: 12px; border-left: 3px solid var(--terracotta); 
@@ -133,58 +129,20 @@
     </div>
 </nav>
 
-<!-- Hero Section for beauty.html -->
 <section class="hero">
     <span class="badge" style="color:var(--jade); font-weight:bold; letter-spacing:1px;">AUDIT HUB // 01</span>
     <h1 class="hub-title">The Beauty <span>Laboratory</span></h1>
     <p>Analytical audits of molecular integrity and skincare utility.</p>
 </section>
 
-<div class="grid">
-    <!-- Beauty Audit 001 -->
-    <div class="audit-card">
-        
-        <!-- Swipeable Image Slider -->
-        <div class="slider-wrapper">
-            <div class="slider-track">
-                <!-- Image 1: The Main Shot -->
-                <img src="assets/eyemask.webp" alt="Grace & Stella Gold Eye Masks">
-                <!-- Image 2: The Context/Packaging Shot -->
-                <img src="assets/eyemask_context.webp" alt="Eye Mask Packaging Detail" onerror="this.src='https://images.unsplash.com/photo-1615397323282-311b514cd140?q=80&w=600&auto=format&fit=crop'">
-                <!-- Image 3: The Texture Shot -->
-                <img src="assets/eyemask_texture.webp" alt="Hydrogel Patch Texture" onerror="this.src='https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=600&auto=format&fit=crop'">
-            </div>
-            <!-- Visual cue for users to interact -->
-            <div class="slider-hint">Swipe ➔</div>
-        </div>>
-
-        <div class="card-content">
-            <span class="badge" style="color:var(--terracotta)">Lab Audit #001</span>
-            <h3>Grace & Stella Eye Masks</h3>
-            
-            <div class="data-sheet">
-                <div class="data-row"><span class="label">Main Active</span><span>Sodium Hyaluronate</span></div>
-                <div class="data-row"><span class="label">pH Level</span><span>5.5 (Optimal)</span></div>
-                <div class="data-row"><span class="label">Utility Rank</span><span>#1 for 2026</span></div>
-            </div>
-
-            <!-- The Persuasive Hook -->
-            <p class="persuasive-text">
-                Recognized as one of the absolute best treatments for under-eye dark circles and morning puffiness. The hydrogel formula locks in deep hydration, instantly waking up tired eyes and delivering a noticeable, radiant glow before you even start your day.
-            </p>
-            
-            <!-- Prepared for Amazon SiteStripe -->
-            <a href="YOUR_AMAZON_LINK_HERE" target="_blank" rel="nofollow" class="btn">Verify Current Pricing</a>
-        </div>
-    </div>
-
-    <!-- Additional placeholders for Step 3 -->
+<!-- The Empty Grid Container -->
+<div class="grid" id="product-grid">
+    <!-- The JavaScript Engine will automatically generate the cards here -->
 </div>
 
 <footer>
-    <p>© 2026 Modern Minimalist | North American Market Analysis.<<em> As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.</em></p>
+    <p>© 2026 Modern Minimalist | North American Market Analysis.<em> As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.</em></p>
     
-    <!-- The Legal Link Row -->
     <div style="margin-top: 15px; display: flex; justify-content: center; gap: 20px;">
         <a href="privacy.html" style="color:#999; text-decoration:none;">Privacy Policy</a>
         <a href="terms.html" style="color:#999; text-decoration:none;">Terms of Service</a>
@@ -192,6 +150,90 @@
         <a href="contact.html" style="color:#999; text-decoration:none;">Contact Registry</a>
     </div>
 </footer>
+
+<!-- THE DATA ENGINE -->
+<script>
+    // 1. YOUR PRODUCT DATABASE. Add new items below.
+    const beautyProducts = [
+        {
+            auditNumber: "001",
+            title: "Grace & Stella Eye Masks",
+            images: [
+                "assets/eyemask.webp",
+                "assets/eyemask_context.webp",
+                "assets/eyemask_texture.webp"
+            ],
+            specs: {
+                mainActive: "Sodium Hyaluronate",
+                phLevel: "5.5 (Optimal)",
+                utilityRank: "#1 for 2026"
+            },
+            hook: "Recognized as one of the absolute best treatments for under-eye dark circles and morning puffiness. The hydrogel formula locks in deep hydration, instantly waking up tired eyes and delivering a noticeable, radiant glow before you even start your day.",
+            amazonLink: "YOUR_AMAZON_LINK_HERE"
+        }
+        /* 
+        TO ADD A NEW PRODUCT, JUST ADD A COMMA ABOVE THIS COMMENT AND PASTE:
+        ,{
+            auditNumber: "002",
+            title: "Product Name Here",
+            images: ["img1.webp", "img2.webp", "img3.webp"],
+            specs: { mainActive: "TBD", phLevel: "TBD", utilityRank: "TBD" },
+            hook: "Persuasive text goes here.",
+            amazonLink: "YOUR_AMAZON_LINK_HERE"
+        }
+        */
+    ];
+
+    // 2. THE RENDER ENGINE
+    function renderProducts() {
+        const grid = document.getElementById('product-grid');
+        grid.innerHTML = ''; // Clear the grid
+
+        beautyProducts.forEach(product => {
+            // Build the image slider dynamically
+            let sliderHTML = '';
+            product.images.forEach(img => {
+                sliderHTML += `<img src="${img}" alt="${product.title}" onerror="this.src='https://images.unsplash.com/photo-1615397323282-311b514cd140?q=80&w=600&auto=format&fit=crop'">`;
+            });
+
+            // Construct the full HTML for the card
+            const cardHTML = `
+                <div class="audit-card">
+                    <div class="slider-container">
+                        <button class="slide-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                        <button class="slide-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+                        <div class="slider-track">
+                            ${sliderHTML}
+                        </div>
+                        <div class="slider-hint">Swipe ➔</div>
+                    </div>
+                    <div class="card-content">
+                        <span class="badge" style="color:var(--terracotta)">Lab Audit #${product.auditNumber}</span>
+                        <h3>${product.title}</h3>
+                        <div class="data-sheet">
+                            <div class="data-row"><span class="label">Main Active</span><span>${product.specs.mainActive}</span></div>
+                            <div class="data-row"><span class="label">pH Level</span><span>${product.specs.phLevel}</span></div>
+                            <div class="data-row"><span class="label">Utility Rank</span><span>${product.specs.utilityRank}</span></div>
+                        </div>
+                        <p class="persuasive-text">${product.hook}</p>
+                        <a href="${product.amazonLink}" target="_blank" rel="nofollow" class="btn">Verify Current Pricing</a>
+                    </div>
+                </div>
+            `;
+            grid.innerHTML += cardHTML;
+        });
+    }
+
+    // 3. THE SLIDER LOGIC
+    function moveSlide(button, direction) {
+        const track = button.parentElement.querySelector('.slider-track');
+        const slideWidth = track.clientWidth;
+        track.scrollBy({ left: slideWidth * direction, behavior: 'smooth' });
+    }
+
+    // 4. IGNITE THE ENGINE
+    renderProducts();
+</script>
 
 </body>
 </html>
