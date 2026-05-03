@@ -1,91 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HXZEJH111N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HXZEJH111N');
+    </script>
+    
     <link rel="icon" type="image/png" href="assets/logo2.png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workspace Hub | Analytical Curation</title>
+    <title>The Analytical Workspace | Ergonomic Tech Audits | Modern Minimalist</title>
+    
     <style>
         :root {
-            --jade: #2D5A27; --terracotta: #C36B4D; --grey: #F4F4F4; --white: #FFFFFF; --dark: #1A1A1A;
+            --jade: #2D5A27; 
+            --terracotta: #C36B4D; 
+            --grey: #F4F4F4; 
+            --white: #FFFFFF; 
+            --dark: #1A1A1A;
             --subtle-elevation: 0 4px 15px rgba(0,0,0,0.03);
         }
+        
         body { font-family: 'Inter', sans-serif; background: var(--grey); color: var(--dark); margin: 0; line-height: 1.6; }
+
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 0 5%; background: var(--white); height: 80px; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; 
+            padding: 0 5%; background: var(--white); height: 80px; 
+            border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; 
         }
         .logo a { text-decoration: none; display: flex; align-items: center; gap: 15px; }
         .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.3rem; color: var(--terracotta); }
         .nav-links a { text-decoration: none; color: var(--dark); margin-left: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+
         .hero { 
             text-align: center; padding: 80px 10%; 
-            background-image: linear-gradient(to bottom, rgba(244,244,244,0.85), rgba(244,244,244,1)), url('https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=1600&auto=format&fit=crop');
+            background-image: 
+                linear-gradient(to bottom, rgba(244,244,244,0.85), rgba(244,244,244,1)), 
+                url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop'); 
             background-size: cover; background-position: center; background-attachment: fixed;
         }
+        
         .hub-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 0; }
         .hub-title span { color: var(--terracotta); font-style: italic; }
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; padding: 40px 5%; max-width: 1400px; margin: auto; }
-        .audit-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: var(--subtle-elevation); transition: transform 0.3s ease; }
+
+        .grid { 
+            display: grid; grid-template-columns: repeat(3, 1fr); 
+            gap: 25px; padding: 40px 5%; max-width: 1400px; margin: auto; 
+        }
+
+        .audit-card { 
+            background: var(--white); border-radius: 12px; overflow: hidden; 
+            box-shadow: var(--subtle-elevation); transition: transform 0.3s ease;
+            display: flex; flex-direction: column;
+        }
         .audit-card:hover { transform: translateY(-8px); }
-        .audit-card img { width: 100%; height: 220px; object-fit: cover; }
-        .card-content { padding: 25px; }
+        
+        /* Swipe & Click Product Slider */
+        .slider-container { position: relative; width: 100%; height: 250px; background: #eee; }
+        .slider-track { 
+            display: flex; overflow-x: auto; scroll-snap-type: x mandatory; 
+            scroll-behavior: smooth; -webkit-overflow-scrolling: touch; 
+            height: 100%; scrollbar-width: none; 
+        }
+        .slider-track::-webkit-scrollbar { display: none; }
+        .slider-track img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; scroll-snap-align: start; }
+        
+        /* Clickable Arrows for Laptop */
+        .slide-btn { 
+            position: absolute; top: 50%; transform: translateY(-50%); 
+            background: rgba(26, 26, 26, 0.7); color: white; border: none; 
+            width: 35px; height: 35px; cursor: pointer; border-radius: 50%; 
+            font-size: 1rem; z-index: 10; display: flex; justify-content: center; align-items: center;
+            backdrop-filter: blur(4px); transition: background 0.3s;
+        }
+        .slide-btn:hover { background: var(--terracotta); }
+        .slide-btn.prev { left: 10px; }
+        .slide-btn.next { right: 10px; }
+
+        .slider-hint {
+            position: absolute; bottom: 15px; right: 15px;
+            background: rgba(26, 26, 26, 0.7); color: var(--white);
+            padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; 
+            font-weight: 700; pointer-events: none; backdrop-filter: blur(4px); z-index: 5;
+        }
+        
+        .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        
         .data-sheet { background: var(--grey); border-radius: 6px; padding: 12px; margin: 15px 0; font-size: 0.8rem; }
         .data-row { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding: 8px 0; }
         .data-row:last-child { border-bottom: none; }
         .label { font-weight: bold; color: var(--jade); }
-        .btn { display: block; text-align: center; background: var(--dark); color: white; padding: 12px; text-decoration: none; border-radius: 4px; font-weight: 600; transition: background 0.3s ease; }
+
+        .persuasive-text { 
+            font-size: 0.9rem; color: #444; margin: 15px 0 20px 0; 
+            padding-left: 12px; border-left: 3px solid var(--terracotta); 
+        }
+
+        .btn { 
+            display: block; text-align: center; background: var(--dark); color: white; 
+            padding: 12px; text-decoration: none; border-radius: 4px; font-weight: 600; 
+            transition: background 0.3s ease; margin-top: auto;
+        }
         .btn:hover { background: var(--terracotta); }
+
         footer { text-align: center; padding: 40px; border-top: 1px solid #eee; font-size: 0.75rem; color: #999; }
+
         @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+
 <nav>
-    <div class="logo"><a href="main.html"><img src="assets/logo.svg" alt="Logo" height="40"><span class="logo-text">Modern Minimalist</span></a></div>
-    <div class="nav-links"><a href="main.html">Home</a><a href="beauty.html">Beauty</a><a href="living.html">Living</a></div>
+    <div class="logo">
+        <a href="main.html">
+            <img src="assets/logo.svg" alt="Modern Minimalist Logo" height="40">
+            <span class="logo-text">Modern Minimalist</span>
+        </a>
+    </div>
+    <div class="nav-links">
+        <a href="main.html">Home</a>
+        <a href="beauty.html">Beauty</a>
+        <a href="living.html">Living</a>
+    </div>
 </nav>
-<!-- Hero Section for workspace.html -->
-<section class="hero" style="background-image: linear-gradient(to bottom, rgba(244,244,244,0.85), rgba(244,244,244,1)), url('https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=1600&auto=format&fit=crop');">
+
+<section class="hero">
     <span class="badge" style="color:var(--jade); font-weight:bold; letter-spacing:1px;">AUDIT HUB // 03</span>
     <h1 class="hub-title">The Analytical <span>Workspace</span></h1>
-    <p>Technical assessments of ergonomic hardware and productivity tools.</p>
+    <p>Auditing ergonomic tech and hardware engineered for deep focus.</p>
 </section>
-<div class="grid">
-    <!-- Audit: BenQ ScreenBar -->
-    <div class="audit-card">
-        <img src="assets/screenbar.png" alt="Monitor Light Bar">
-        <div class="card-content">
-            <span class="badge" style="color:var(--terracotta)">Tech Audit #001</span>
-            <h3>BenQ ScreenBar Pro</h3>
-            <div class="data-sheet">
-                <div class="data-row"><span class="label">Illuminance</span><span>1000 lx (Peak)</span></div>
-                <div class="data-row"><span class="label">Color Temp</span><span>2700K - 6500K</span></div>
-                <div class="data-row"><span class="label">Chassis</span><span>AL Alloy</span></div>
-            </div>
-            <a href="#" class="btn">Access Technical Build</a>
-        </div>
-    </div>
-    <!-- Audit: Felt Desk Mat -->
-    <div class="audit-card">
-        <img src="https://images.unsplash.com/photo-1616627561950-9f746e330171?q=80&w=800&auto=format&fit=crop" alt="Desk Mat">
-        <div class="card-content">
-            <span class="badge" style="color:var(--terracotta)">Tech Audit #002</span>
-            <h3>DAWNTREES Felt Mat</h3>
-            <div class="data-sheet">
-                <div class="data-row"><span class="label">Material</span><span>Pressed Synthetic Felt</span></div>
-                <div class="data-row"><span class="label">Base</span><span>Anti-Slip Rubber</span></div>
-                <div class="data-row"><span class="label">Acoustics</span><span>-3dB Dampening</span></div>
-            </div>
-            <a href="#" class="btn">Audit Tactile Profile</a>
-        </div>
-    </div>
+
+<!-- The Empty Grid Container -->
+<div class="grid" id="product-grid">
+    <!-- The JavaScript Engine will automatically generate the cards here -->
 </div>
+
 <footer>
-    <p>© 2026 Modern Minimalist | Mississauga, ON.</p>
-    <p><em>As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.</em></p>
+    <p>© 2026 Modern Minimalist | North American Market Analysis.<em> As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.</em></p>
+    
+    <div style="margin-top: 15px; display: flex; justify-content: center; gap: 20px;">
+        <a href="privacy.html" style="color:#999; text-decoration:none;">Privacy Policy</a>
+        <a href="terms.html" style="color:#999; text-decoration:none;">Terms of Service</a>
+        <a href="disclaimer.html" style="color:#999; text-decoration:none;">Disclaimer</a>
+        <a href="contact.html" style="color:#999; text-decoration:none;">Contact Registry</a>
+    </div>
 </footer>
+
+<!-- THE DATA ENGINE -->
+<script>
+    // 1. YOUR WORKSPACE HUB DATABASE.
+    const workspaceProducts = [
+        {
+            auditNumber: "003",
+            title: "BenQ ScreenBar Pro",
+            images: [
+                "assets/screenbar.webp",
+                "assets/bar2.jpg",
+                "assets/bar3.jpg"
+            ],
+            specs: {
+                illuminance: "1000 lx (Peak)",
+                colorTemp: "2700K - 6500K",
+                utilityRank: "#1 for 2026"
+            },
+            hook: "An absolute necessity for prolonged screen exposure. By eliminating monitor glare and casting a precise, asymmetrical light beam onto your desk, it drastically reduces digital eye strain while reclaiming premium desk space previously lost to traditional lamps.",
+            amazonLink: "YOUR_AMAZON_LINK_HERE"
+        }
+    ];
+
+    // 2. THE RENDER ENGINE
+    function renderProducts() {
+        const grid = document.getElementById('product-grid');
+        grid.innerHTML = ''; 
+
+        workspaceProducts.forEach(product => {
+            let sliderHTML = '';
+            product.images.forEach(img => {
+                // BUG FIX APPLIED HERE: this.onerror=null; prevents infinite loading loops
+                sliderHTML += `<img src="${img}" alt="${product.title}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=600&auto=format&fit=crop'">`;
+            });
+
+            const cardHTML = `
+                <div class="audit-card">
+                    <div class="slider-container">
+                        <button class="slide-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                        <button class="slide-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+                        <div class="slider-track">
+                            ${sliderHTML}
+                        </div>
+                        <div class="slider-hint">Swipe ➔</div>
+                    </div>
+                    <div class="card-content">
+                        <span class="badge" style="color:var(--terracotta)">Lab Audit #${product.auditNumber}</span>
+                        <h3>${product.title}</h3>
+                        <div class="data-sheet">
+                            <div class="data-row"><span class="label">Illuminance</span><span>${product.specs.illuminance}</span></div>
+                            <div class="data-row"><span class="label">Color Temp</span><span>${product.specs.colorTemp}</span></div>
+                            <div class="data-row"><span class="label">Utility Rank</span><span>${product.specs.utilityRank}</span></div>
+                        </div>
+                        <p class="persuasive-text">${product.hook}</p>
+                        <a href="${product.amazonLink}" target="_blank" rel="nofollow" class="btn">Verify Current Pricing</a>
+                    </div>
+                </div>
+            `;
+            grid.innerHTML += cardHTML;
+        });
+    }
+
+    // 3. THE SLIDER LOGIC
+    function moveSlide(button, direction) {
+        const track = button.parentElement.querySelector('.slider-track');
+        const slideWidth = track.clientWidth;
+        track.scrollBy({ left: slideWidth * direction, behavior: 'smooth' });
+    }
+
+    // 4. IGNITE THE ENGINE
+    renderProducts();
+</script>
+
 </body>
 </html>
