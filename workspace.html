@@ -61,16 +61,22 @@
         
         /* Swipe & Click Product Slider */
         .slider-container { position: relative; width: 100%; height: 250px; background: #eee; }
+        
+        .slider-track { 
+            display: flex; overflow-x: auto; scroll-snap-type: x mandatory; 
+            scroll-behavior: smooth; -webkit-overflow-scrolling: touch; 
+            height: 100%; scrollbar-width: none; 
+        }
+        .slider-track::-webkit-scrollbar { display: none; }
+        
         .slider-track img { 
             width: 100%; 
             height: 100%; 
-            object-fit: contain; /* This forces the full image to show without cropping */
+            object-fit: contain; /* Forces full image to show */
             flex-shrink: 0; 
             scroll-snap-align: start; 
-            background: var(--white); /* Blends any empty space perfectly */
+            background: var(--white); 
         }
-        .slider-track::-webkit-scrollbar { display: none; }
-        .slider-track img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; scroll-snap-align: start; }
         
         /* Clickable Arrows for Laptop */
         .slide-btn { 
@@ -189,7 +195,6 @@
                         <div class="slider-track">
                             ${sliderHTML}
                         </div>
-                        
                     </div>
                     <div class="card-content">
                         <span class="badge" style="color:var(--terracotta)">Lab Audit #${product.auditNumber}</span>
