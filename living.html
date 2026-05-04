@@ -61,16 +61,22 @@
         
         /* Swipe & Click Product Slider */
         .slider-container { position: relative; width: 100%; height: 250px; background: #eee; }
+        
+        .slider-track { 
+            display: flex; overflow-x: auto; scroll-snap-type: x mandatory; 
+            scroll-behavior: smooth; -webkit-overflow-scrolling: touch; 
+            height: 100%; scrollbar-width: none; 
+        }
+        .slider-track::-webkit-scrollbar { display: none; }
+        
         .slider-track img { 
             width: 100%; 
             height: 100%; 
-            object-fit: contain; /* This forces the full image to show without cropping */
+            object-fit: contain; /* Forces full image to show */
             flex-shrink: 0; 
             scroll-snap-align: start; 
-            background: var(--white); /* Blends any empty space perfectly */
+            background: var(--white); 
         }
-        .slider-track::-webkit-scrollbar { display: none; }
-        .slider-track img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; scroll-snap-align: start; }
         
         /* Clickable Arrows for Laptop */
         .slide-btn { 
@@ -84,8 +90,6 @@
         .slide-btn.prev { left: 10px; }
         .slide-btn.next { right: 10px; }
 
-    
-        
         .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
         
         .data-sheet { background: var(--grey); border-radius: 6px; padding: 12px; margin: 15px 0; font-size: 0.8rem; }
@@ -169,17 +173,6 @@
             hook: "A masterclass in atmospheric utility. By melting wax from the top down using focused halogen heat, it entirely eliminates fire hazards and soot while doubling the lifespan of your premium candles. It is the definitive upgrade for ambient, worry-free lighting.",
             amazonLink: "YOUR_AMAZON_LINK_HERE"
         }
-        /* 
-        TO ADD A NEW LIVING PRODUCT, ADD A COMMA ABOVE AND PASTE:
-        ,{
-            auditNumber: "003",
-            title: "Product Name Here",
-            images: ["img1.webp", "img2.webp", "img3.webp"],
-            specs: { heatSource: "TBD", safety: "TBD", utilityRank: "TBD" },
-            hook: "Persuasive text goes here.",
-            amazonLink: "YOUR_AMAZON_LINK_HERE"
-        }
-        */
     ];
 
     // 2. THE RENDER ENGINE
@@ -203,7 +196,6 @@
                         <div class="slider-track">
                             ${sliderHTML}
                         </div>
-                    
                     </div>
                     <div class="card-content">
                         <span class="badge" style="color:var(--terracotta)">Lab Audit #${product.auditNumber}</span>
