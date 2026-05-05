@@ -72,10 +72,10 @@
         .slider-track img { 
             width: 100%; 
             height: 100%; 
-            object-fit: contain; /* Forces the full image to show without cropping */
+            object-fit: contain;
             flex-shrink: 0; 
             scroll-snap-align: start; 
-            background: var(--white); /* Blends any empty space perfectly */
+            background: var(--white); 
         }
         
         /* Clickable Arrows for Laptop */
@@ -155,7 +155,7 @@
 
 <!-- THE DATA ENGINE -->
 <script>
-    // 1. YOUR PRODUCT DATABASE. Add new items below.
+    // 1. YOUR PRODUCT DATABASE
     const beautyProducts = [
         {
             auditNumber: "001",
@@ -167,13 +167,14 @@
             ],
             specs: {
                 mainActive: "Sodium Hyaluronate",
-                phLevel: "5.5 (Optimal)",
-                utilityRank: "#1 for 2026"
+                utilityTarget: "Deep Hydration & De-puffing",
+                absorptionProfile: "Sustained Hydrogel Transfer",
+                auditScore: "9.4 / 10"
             },
             hook: "Recognized as one of the absolute best treatments for under-eye dark circles and morning puffiness. The hydrogel formula locks in deep hydration, instantly waking up tired eyes and delivering a noticeable, radiant glow before you even start your day.",
             amazonLink: "https://amzn.to/4uk4JxW"
-        }
-       ,{
+        },
+        {
             auditNumber: "002",
             title: "Paula's Choice Clinical 20% Niacinamide",
             images: [
@@ -187,12 +188,10 @@
                 absorptionProfile: "Rapid / Low Viscosity",
                 auditScore: "9.6 / 10"
             },
-           
             hook: "A high-concentration formulation designed for advanced texture correction. At 20% Niacinamide, this serum pushes the boundaries of standard cosmetic utility, offering a highly targeted approach to refining pore appearance and balancing skin tone without unnecessary botanical fillers.",
             amazonLink: "https://amzn.to/4usRbQO"
-        }
-        
-        ,{
+        },
+        {
             auditNumber: "003",
             title: "Mixsoon Fermented Bean Essence",
             images: [
@@ -206,18 +205,22 @@
                 absorptionProfile: "High Viscosity / Sustained",
                 auditScore: "9.2 / 10"
             },
-            
             hook: "A high-efficiency dual-action formulation utilizing the natural mucilage of fermented soybeans. This essence bypasses abrasive physical exfoliants in favor of gentle AHAs and organic amino acids, simultaneously dissolving dead skin cells and reinforcing the moisture barrier for a highly refined surface texture.",
             amazonLink: "https://amzn.to/4uwvjEl"
         }
         
         /* 
-        TO ADD A NEW PRODUCT, JUST ADD A COMMA ABOVE THIS COMMENT AND PASTE:
+        TO ADD A NEW PRODUCT IN THE FUTURE, PASTE THIS TEMPLATE:
         ,{
-            auditNumber: "002",
+            auditNumber: "004",
             title: "Product Name Here",
             images: ["img1.webp", "img2.webp", "img3.webp"],
-            specs: { mainActive: "TBD", phLevel: "TBD", utilityRank: "TBD" },
+            specs: { 
+                mainActive: "TBD", 
+                utilityTarget: "TBD", 
+                absorptionProfile: "TBD", 
+                auditScore: "TBD" 
+            },
             hook: "Persuasive text goes here.",
             amazonLink: "YOUR_AMAZON_LINK_HERE"
         }
@@ -227,16 +230,14 @@
     // 2. THE RENDER ENGINE
     function renderProducts() {
         const grid = document.getElementById('product-grid');
-        grid.innerHTML = ''; // Clear the grid
+        grid.innerHTML = ''; 
 
         beautyProducts.forEach(product => {
-            // Build the image slider dynamically
             let sliderHTML = '';
             product.images.forEach(img => {
                 sliderHTML += `<img src="${img}" alt="${product.title}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1615397323282-311b514cd140?q=80&w=600&auto=format&fit=crop'">`;
             });
 
-            // Construct the full HTML for the card
             const cardHTML = `
                 <div class="audit-card">
                     <div class="slider-container">
@@ -251,8 +252,9 @@
                         <h3>${product.title}</h3>
                         <div class="data-sheet">
                             <div class="data-row"><span class="label">Main Active</span><span>${product.specs.mainActive}</span></div>
-                            <div class="data-row"><span class="label">pH Level</span><span>${product.specs.phLevel}</span></div>
-                            <div class="data-row"><span class="label">Utility Rank</span><span>${product.specs.utilityRank}</span></div>
+                            <div class="data-row"><span class="label">Utility Target</span><span>${product.specs.utilityTarget}</span></div>
+                            <div class="data-row"><span class="label">Absorption</span><span>${product.specs.absorptionProfile}</span></div>
+                            <div class="data-row"><span class="label">Audit Score</span><span>${product.specs.auditScore}</span></div>
                         </div>
                         <p class="persuasive-text">${product.hook}</p>
                         <a href="${product.amazonLink}" target="_blank" rel="nofollow" class="btn">Verify Current Pricing</a>
