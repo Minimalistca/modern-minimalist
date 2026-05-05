@@ -169,18 +169,30 @@
         We operate on a strict analytical framework. Every essential featured on this platform undergoes a rigorous evaluation of its utility, material integrity, and design efficiency. We eliminate the noise of trend-cycles to provide objective data on what actually elevates the modern environment.
     </p>
 </section>
-<section class="newsletter">
-    <h3>The Weekly Audit Log</h3>
-    <p>Join the registry to receive technical breakdowns of minimalist essentials and laboratory-grade product audits before they hit the site.</p>
     
-    <!-- ADD YOUR BREVO URL TO THE ACTION ATTRIBUTE BELOW -->
-    <form class="newsletter-form" action="https://938c01b0.sibforms.com/serve/MUIFAHCpEmoqPLfd6vAcS1g0siQu5x457FUACf-umcwt_Laemf_DuFQwrMH_2L5c77R4gO6hDzBumvXxUTgEuIsqIRg06G8bf_HdkeCyjg3GtlHS8eWU-7f5mNYmFzTTqy7j-AwmvTfm17rJdqVm563rvYugOyZI-WQIvEfipEg6V5UyzLWnHth4SPy06lIhERZvzdU69oGrqB_glQ==" method="POST">
-        <input type="email" name="email" placeholder="Enter your email address" required>
-        <button type="submit">Join Registry</button>
+<!-- THE LABORATORY REGISTRY (Brevo Integration) -->
+<section style="background: var(--white); padding: 60px 10%; text-align: center; border-top: 1px solid #eee;">
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem;">Join the <span>Analytical Registry</span></h2>
+    <p style="color: #666; max-width: 600px; margin: 10px auto 30px auto;">Get weekly audits on molecular integrity and ergonomic utility. No noise. Just data.</p>
+    
+    <!-- This is the actual Brevo Form -->
+    <form id="sib-form" method="POST" action="https://938c01b0.sibforms.com/serve/MUIFAHCpEmoqPLfd6vAcS1g0siQu5x457FUACf-umcwt_Laemf_DuFQwrMH_2L5c77R4gO6hDzBumvXxUTgEuIsqIRg06G8bf_HdkeCyjg3GtlHS8eWU-7f5mNYmFzTTqy7j-AwmvTfm17rJdqVm563rvYugOyZI-WQIvEfipEg6V5UyzLWnHth4SPy06lIhERZvzdU69oGrqB_glQ==">
+        <div style="display: flex; justify-content: center; gap: 10px; max-width: 500px; margin: auto;">
+            <input type="email" name="EMAIL" placeholder="Email address" required 
+                   style="flex-grow: 1; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
+            <button type="submit" class="btn" style="margin-top: 0; padding: 12px 30px;">Initialize Access</button>
+        </div>
+        
+        <!-- Success/Error Messages (Hidden by default) -->
+        <div id="success-message" style="display:none; color: var(--jade); font-weight: bold; margin-top: 20px;">
+            Registration Complete. Check your inbox for the Initial Audit.
+        </div>
+        <div id="error-message" style="display:none; color: var(--terracotta); margin-top: 20px;">
+            Error. Please verify your email and try again.
+        </div>
     </form>
-    
-    <span class="privacy-note">Zero spam. Unsubscribe at any time.</span>
 </section>
+    
 
 <footer>
     <p>© 2026 Modern Minimalist | Analyzed & Audited.<em> As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.</em></p>
@@ -193,6 +205,27 @@
         <a href="contact.html" style="color:#999; text-decoration:none;">Contact Registry</a>
     </div>
 </footer>
-
+<script>
+    const form = document.getElementById('sib-form');
+    form.onsubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors' // Allows the request even if Brevo blocks standard Ajax
+            });
+            
+            // Show Success Message
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('error-message').style.display = 'none';
+            form.querySelector('div').style.display = 'none'; // Hide the input fields
+        } catch (error) {
+            document.getElementById('error-message').style.display = 'block';
+        }
+    };
+</script>
 </body>
 </html>
