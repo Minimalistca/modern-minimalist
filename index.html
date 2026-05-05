@@ -171,24 +171,26 @@
 </section>
     
 <!-- THE LABORATORY REGISTRY (Brevo Integration) -->
-<section style="background: var(--white); padding: 60px 10%; text-align: center; border-top: 1px solid #eee;">
-    <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem;">Join the <span>Analytical Registry</span></h2>
-    <p style="color: #666; max-width: 600px; margin: 10px auto 30px auto;">Get weekly audits on molecular integrity and ergonomic utility. No noise. Just data.</p>
+<section style="background: #EDEDED; padding: 80px 10%; text-align: center; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--dark);">Join the <span>Analytical Registry</span></h2>
+    <p style="color: #555; max-width: 600px; margin: 10px auto 35px auto; font-size: 1rem;">
+        Get direct audits on molecular integrity and ergonomic utility. No noise. Just data.
+    </p>
     
     <!-- This is the actual Brevo Form -->
     <form id="sib-form" method="POST" action="https://938c01b0.sibforms.com/serve/MUIFAHCpEmoqPLfd6vAcS1g0siQu5x457FUACf-umcwt_Laemf_DuFQwrMH_2L5c77R4gO6hDzBumvXxUTgEuIsqIRg06G8bf_HdkeCyjg3GtlHS8eWU-7f5mNYmFzTTqy7j-AwmvTfm17rJdqVm563rvYugOyZI-WQIvEfipEg6V5UyzLWnHth4SPy06lIhERZvzdU69oGrqB_glQ==">
-        <div style="display: flex; justify-content: center; gap: 10px; max-width: 500px; margin: auto;">
-            <input type="email" name="EMAIL" placeholder="Email address" required 
-                   style="flex-grow: 1; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Inter', sans-serif;">
-            <button type="submit" class="btn" style="margin-top: 0; padding: 12px 30px;">Initialize Access</button>
+        <div id="input-container" style="display: flex; justify-content: center; gap: 12px; max-width: 550px; margin: auto;">
+            <input type="email" name="EMAIL" placeholder="Enter your email for registry access" required 
+                   style="flex-grow: 1; padding: 15px; border: 1px solid #ccc; border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 0.9rem;">
+            <button type="submit" class="btn" style="margin-top: 0; padding: 15px 35px; white-space: nowrap;">Initialize Access</button>
         </div>
         
         <!-- Success/Error Messages (Hidden by default) -->
-        <div id="success-message" style="display:none; color: var(--jade); font-weight: bold; margin-top: 20px;">
-            Registration Complete. Check your inbox for the Initial Audit.
+        <div id="success-message" style="display:none; color: var(--jade); font-weight: 700; margin-top: 25px; padding: 15px; border: 1px dashed var(--jade); border-radius: 6px; background: rgba(45, 90, 39, 0.05);">
+            Registry Request Received. Check your inbox for the Initial Audit report.
         </div>
-        <div id="error-message" style="display:none; color: var(--terracotta); margin-top: 20px;">
-            Error. Please verify your email and try again.
+        <div id="error-message" style="display:none; color: var(--terracotta); margin-top: 25px; font-weight: 700;">
+            Registry Error. Please verify your email format and try again.
         </div>
     </form>
 </section>
