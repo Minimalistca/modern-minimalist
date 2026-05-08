@@ -137,10 +137,8 @@
     <p>Auditing atmospheric utility, environmental control, and functional home hardware.</p>
 </section>
 
-<!-- The Empty Grid Container -->
 <div class="grid" id="product-grid">
-    <!-- The JavaScript Engine will automatically generate the cards here -->
-</div>
+    </div>
 
 <footer>
     <p>© 2026 Modern Minimalist | North American Market Analysis.<em> As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.</em></p>
@@ -153,12 +151,11 @@
     </div>
 </footer>
 
-<!-- THE DATA ENGINE -->
 <script>
     // 1. YOUR LIVING HUB DATABASE.
     const livingProducts = [
         {
-            auditNumber: "002",
+            auditNumber: "001",
             title: "Candle Warmer Lamp",
             images: [
                 "assets/candle.png",
@@ -166,12 +163,64 @@
                 "assets/candle3.jpg"
             ],
             specs: {
-                heatSource: "50W Halogen",
-                safety: "Zero Open Flame",
-                utilityRank: "#1 for 2026"
+                coreTechnology: "50W Halogen Thermal Extraction",
+                utilityTarget: "Ambient Illumination & Wax Preservation",
+                spatialProfile: "Zero-Flame Safety Profile",
+                auditScore: "9.2 / 10"
             },
             hook: "A masterclass in atmospheric utility. By melting wax from the top down using focused halogen heat, it entirely eliminates fire hazards and soot while doubling the lifespan of your premium candles. It is the definitive upgrade for ambient, worry-free lighting.",
             amazonLink: "https://amzn.to/4d6fgGe"
+        },
+        {
+            auditNumber: "002",
+            title: "Hatch Restore 3 Sunrise Alarm",
+            images: [
+                "assets/hatch-1.webp",
+                "assets/hatch2.jpg",
+                "assets/hatch3.jpg"
+            ],
+            specs: {
+                coreTechnology: "Bio-Curated LED Light Spectrum",
+                utilityTarget: "Circadian Rhythm Optimization",
+                spatialProfile: "Tactile Putty-Tone Fabric",
+                auditScore: "9.8 / 10"
+            },
+            hook: "Engineered to overhaul sleep architecture, this unit replaces multiple bedside devices. By utilizing clinically inspired acoustic masking and light phasing that mimics natural circadian transitions, it establishes a mathematically precise sleep environment within a screen-free form.",
+            amazonLink: "https://amzn.to/49mbcjX"
+        },
+        {
+            auditNumber: "003",
+            title: "Vitruvi Stone Ultrasonic Diffuser",
+            images: [
+                "assets/vit1.webp",
+                "assets/vit2.jpg",
+                "assets/vit3.jpg"
+            ],
+            specs: {
+                coreTechnology: "2.5MHz Ultrasonic Oscillation",
+                utilityTarget: "Ambient Olfactory Engineering",
+                spatialProfile: "Hand-Crafted Black Porcelain",
+                auditScore: "9.5 / 10"
+            },
+            hook: "A masterclass in bridging atmospheric utility with architectural design. Bypassing thermal degradation, it utilizes high-frequency ultrasonic vibrations to disperse essential oils while functioning as a sculptural asset in any minimalist environment.",
+            amazonLink: "https://amzn.to/3QNGdqO"
+        },
+        {
+            auditNumber: "004",
+            title: "Click & Grow Smart Garden 3",
+            images: [
+                "assets/herb1.webp",
+                "assets/herb2.jpg",
+                "assets/herb3.jpg"
+            ],
+            specs: {
+                coreTechnology: "Automated Capillary Irrigation",
+                utilityTarget: "Autonomous Indoor Agriculture",
+                spatialProfile: "Modular Polymer Console",
+                auditScore: "9.3 / 10"
+            },
+            hook: "A closed-loop system for introducing organic elements into sterile environments. Featuring smart soil hydro-cells and an automated LED spectrum calibrated for optimal photosynthesis, it removes the maintenance variables of indoor gardening for a continuous botanical yield.",
+            amazonLink: "https://amzn.to/42r4QMq"
         }
     ];
 
@@ -201,9 +250,10 @@
                         <span class="badge" style="color:var(--terracotta)">Lab Audit #${product.auditNumber}</span>
                         <h3>${product.title}</h3>
                         <div class="data-sheet">
-                            <div class="data-row"><span class="label">Heat Source</span><span>${product.specs.heatSource}</span></div>
-                            <div class="data-row"><span class="label">Safety</span><span>${product.specs.safety}</span></div>
-                            <div class="data-row"><span class="label">Utility Rank</span><span>${product.specs.utilityRank}</span></div>
+                            <div class="data-row"><span class="label">Core Hardware</span><span>${product.specs.coreTechnology}</span></div>
+                            <div class="data-row"><span class="label">Utility Target</span><span>${product.specs.utilityTarget}</span></div>
+                            <div class="data-row"><span class="label">Spatial Profile</span><span>${product.specs.spatialProfile}</span></div>
+                            <div class="data-row"><span class="label">Audit Score</span><span>${product.specs.auditScore}</span></div>
                         </div>
                         <p class="persuasive-text">${product.hook}</p>
                         <a href="${product.amazonLink}" target="_blank" rel="nofollow" class="btn">Verify Current Pricing</a>
