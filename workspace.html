@@ -137,10 +137,8 @@
     <p>Auditing ergonomic tech and hardware engineered for deep focus.</p>
 </section>
 
-<!-- The Empty Grid Container -->
 <div class="grid" id="product-grid">
-    <!-- The JavaScript Engine will automatically generate the cards here -->
-</div>
+    </div>
 
 <footer>
     <p>© 2026 Modern Minimalist | North American Market Analysis.<em> As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.</em></p>
@@ -153,12 +151,11 @@
     </div>
 </footer>
 
-<!-- THE DATA ENGINE -->
 <script>
     // 1. YOUR WORKSPACE HUB DATABASE.
     const workspaceProducts = [
         {
-            auditNumber: "003",
+            auditNumber: "201",
             title: "BenQ ScreenBar Pro",
             images: [
                 "assets/screenbar.webp",
@@ -166,12 +163,66 @@
                 "assets/bar3.jpg"
             ],
             specs: {
-                illuminance: "1000 lx (Peak)",
-                colorTemp: "2700K - 6500K",
-                utilityRank: "#1 for 2026"
+                coreHardware: "Auto-Dimming Asymmetric Optics",
+                utilityTarget: "Screen Glare & Eye Strain Reduction",
+                spatialProfile: "Zero-Footprint Monitor Mount",
+                auditScore: "9.7 / 10"
             },
             hook: "An absolute necessity for prolonged screen exposure. By eliminating monitor glare and casting a precise, asymmetrical light beam onto your desk, it drastically reduces digital eye strain while reclaiming premium desk space previously lost to traditional lamps.",
             amazonLink: "https://amzn.to/4tLG4T7"
+        },
+        {
+            auditNumber: "202",
+            title: "Logitech MX Master 3S",
+            images: ["assets/mx1.webp", "assets/mx2.jpg", "assets/mx3.jpg"],
+            specs: {
+                coreHardware: "8K DPI Any-Surface Sensor",
+                utilityTarget: "Ergonomic Precision & Silent Input",
+                spatialProfile: "Sculpted Graphite Architecture",
+                auditScore: "9.9 / 10"
+            },
+            hook: "Widely considered the best mouse ever made for productivity. Its ergonomic shape supports your hand for hours, while the silent-click buttons and lightning-fast scroll wheel make navigating complex data feel effortless.",
+            amazonLink: "https://amzn.to/4tgpBVX"
+        },
+        {
+            auditNumber: "203",
+            title: "Ember Temperature Control Smart Mug 2",
+            images: ["assets/ember1.webp", "assets/ember2.jpg", "assets/ember3.jpg"],
+            specs: {
+                coreHardware: "Precision Thermal Core & Li-ion Battery",
+                utilityTarget: "Sustained Temperature Regulation",
+                spatialProfile: "Matte Black Ceramic Coating",
+                auditScore: "9.5 / 10"
+            },
+            hook: "The ultimate solution for uninterrupted focus. Engineered with a precision thermal core, this smart mug maintains your exact preferred drinking temperature for hours, entirely eliminating the distraction of cold coffee during long, intensive work sessions.",
+            amazonLink: "https://amzn.to/4dvehk5"
+        },
+        {
+           {
+            auditNumber: "204",
+            title: "Satechi Dual Vertical Stand",
+            images: ["assets/stand1.webp", "assets/stand2.jpg", "assets/stand3.jpg"],
+            specs: {
+                coreHardware: "High-Grade Anodized Aluminum",
+                utilityTarget: "Vertical Space Optimization",
+                spatialProfile: "Brutalist Minimalist Footprint",
+                auditScore: "9.4 / 10"
+            },
+            hook: "Reclaim your desk space by docking your devices vertically. This heavy-duty stand holds two laptops or tablets securely, creating a clean, organized look that turns your hardware into a piece of desk art.",
+            amazonLink: "https://amzn.to/42ioSsx"
+        },
+        {
+            auditNumber: "205",
+            title: "Bose QuietComfort Ultra",
+            images: ["assets/bose1.webp", "assets/bose2.jpg", "assets/bose3.jpg"],
+            specs: {
+                coreHardware: "CustomTune Noise Cancellation",
+                utilityTarget: "Deep Focus & Acoustic Isolation",
+                spatialProfile: "Lightweight Ergonomic Wrap",
+                auditScore: "9.6 / 10"
+            },
+            hook: "The definitive tool for deep work in loud environments. These headphones use world-class noise cancellation to silence the world around you, allowing you to stay in the zone for hours with zero distractions.",
+            amazonLink: "https://amzn.to/4cXuKgX"
         }
     ];
 
@@ -200,9 +251,10 @@
                         <span class="badge" style="color:var(--terracotta)">Lab Audit #${product.auditNumber}</span>
                         <h3>${product.title}</h3>
                         <div class="data-sheet">
-                            <div class="data-row"><span class="label">Illuminance</span><span>${product.specs.illuminance}</span></div>
-                            <div class="data-row"><span class="label">Color Temp</span><span>${product.specs.colorTemp}</span></div>
-                            <div class="data-row"><span class="label">Utility Rank</span><span>${product.specs.utilityRank}</span></div>
+                            <div class="data-row"><span class="label">Core Hardware</span><span>${product.specs.coreHardware}</span></div>
+                            <div class="data-row"><span class="label">Utility Target</span><span>${product.specs.utilityTarget}</span></div>
+                            <div class="data-row"><span class="label">Spatial Profile</span><span>${product.specs.spatialProfile}</span></div>
+                            <div class="data-row"><span class="label">Audit Score</span><span>${product.specs.auditScore}</span></div>
                         </div>
                         <p class="persuasive-text">${product.hook}</p>
                         <a href="${product.amazonLink}" target="_blank" rel="nofollow" class="btn">Verify Current Pricing</a>
